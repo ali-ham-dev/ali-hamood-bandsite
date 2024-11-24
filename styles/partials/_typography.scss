@@ -1,0 +1,25 @@
+// Custom Font.
+
+@font-face {
+    font-family: 'nunito-sans';
+    src: url('../../assets/fonts/Alternative/NunitoSans-Regular.woff2') format('woff2'),
+         url('../../assets/fonts/NunitoSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nunito-sans';
+    src: url('../../assets/fonts/Alternative/NunitoSans-Medium.woff2') format('woff2'),
+         url('../../assets/fonts/NunitoSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nunito-sans';
+    src: url('../../assets/fonts/Alternative/NunitoSans-Bold.woff2') format('woff2'),
+         url('../../assets/fonts/NunitoSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
