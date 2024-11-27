@@ -1,3 +1,8 @@
+@use './global' as *;
+@use './variables' as *;
+@use './typography' as *;
+
+
 // Desktop and tablet text styles.
 
 @mixin page-header-text {

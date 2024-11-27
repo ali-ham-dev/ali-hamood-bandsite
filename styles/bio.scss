@@ -5,5 +5,10 @@
 
 .header {
     background-color: $primary-black;
+    color: $primary-white;
+
+    &__top-bar-title {
+        @include section-header-text;
+    }
 }
 
