@@ -6,15 +6,14 @@
 .header {
     background-color: $primary-black;
     color: $primary-white;
+}
 
-    &__top-bar-title {
-        @include section-header-text;
-        @include no-margin-padding;
-        // max-height: 1.25rem;
-        // max-width: 7.5rem; 
+.nav {
+    &__title {
+        @extend %band-site-logo;
     }
 
-    &__nav-bar-list {
+    &__list {
         @extend %nav-list;
         display: flex;
     }
