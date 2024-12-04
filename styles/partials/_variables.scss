@@ -63,6 +63,13 @@ $secondary-dark-black: #000000;
 $secondary-mercury: #E1E1E1;
 $secondary-alabaster: #FAFAFA;
 
-// Margin and Padding
+// Margin and padding.
 
 $no-margin: 0;
+$no-padding: 0;
+
+
+// Screen brake points. 
+$desktop: 1280px;
+$tablet: 768px;
+$mobile: 320px;

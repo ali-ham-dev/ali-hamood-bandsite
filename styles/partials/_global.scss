@@ -1,8 +1,17 @@
 @use './variables' as *;
 @use './typography' as *;
+@use './mixins' as *;
 
 
 body {
     margin: $no-margin;
+    padding: $no-padding;
 }
 
+
+%nav-list {
+    text-decoration: none;
+    list-style: none;
+    margin: $no-margin;
+    padding: $no-padding;
+}

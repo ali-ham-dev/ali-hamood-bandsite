@@ -9,6 +9,56 @@
 
     &__top-bar-title {
         @include section-header-text;
+        @include no-margin-padding;
+        // max-height: 1.25rem;
+        // max-width: 7.5rem; 
+    }
+
+    &__nav-bar-list {
+        @extend %nav-list;
+        display: flex;
     }
 }
 
+// TODO: Review for SASS
+// TODO: implement for phone/tablet. 
+.hero {
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-black;
+        opacity: 50%;
+        z-index: 2;
+    }
+
+    &__title {
+        position: relative;
+        top: 0;
+        left: -20%;
+        z-index: 3;
+        color: $primary-white;
+        @include page-header-text;
+        @include no-margin-padding;
+    }
+}

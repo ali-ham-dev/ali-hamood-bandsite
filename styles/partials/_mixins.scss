@@ -1,4 +1,3 @@
-@use './global' as *;
 @use './variables' as *;
 @use './typography' as *;
 
@@ -6,28 +5,28 @@
 // Desktop and tablet text styles.
 
 @mixin page-header-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $page-header-text-size;
     line-height: $page-header-line-height;
     font-weight: $page-header-text-weight;
 }
 
 @mixin section-header-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $section-header-text-size;
     line-height: $section-header-line-height;
     font-weight: $section-header-text-weight;
 }
 
 @mixin subheader-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $subheader-text-size;
     line-height: $subheader-line-height;
     font-weight: $subheader-text-weight;
 }
 
 @mixin body-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $body-text-size;
     line-height: $body-line-height;
     font-weight: $body-text-weight;
@@ -39,7 +38,7 @@
 }
 
 @mixin footer-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $footer-text-size;
     line-height: $footer-line-height;
     font-weight: $footer-text-weight;
@@ -51,7 +50,7 @@
 }
 
 @mixin labels-buttons-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $labels-buttons-text-size;
     line-height: $labels-buttons-line-height;
     font-weight: $labels-buttons-text-weight;
@@ -65,28 +64,28 @@
 // Mobile text styles.
 
 @mixin m-page-header-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-page-header-text-size;
     line-height: $m-page-header-line-height;
     font-weight: $m-page-header-text-weight;
 }
 
 @mixin m-section-header-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-section-header-text-size;
     line-height: $m-section-header-line-height;
     font-weight: $m-section-header-text-weight;
 }
 
 @mixin m-subheader-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-subheader-text-size;
     line-height: $m-subheader-line-height;
     font-weight: $m-subheader-text-weight;
 }
 
 @mixin m-body-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-body-text-size;
     line-height: $m-body-line-height;
     font-weight: $m-body-text-weight;
@@ -98,7 +97,7 @@
 }
 
 @mixin m-footer-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-footer-text-size;
     line-height: $m-footer-line-height;
     font-weight: $m-footer-text-weight;
@@ -110,7 +109,7 @@
 }
 
 @mixin m-labels-buttons-text {
-    font-style: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
     font-size: $m-labels-buttons-text-size;
     line-height: $m-labels-buttons-line-height;
     font-weight: $m-labels-buttons-text-weight;
@@ -119,4 +118,10 @@
 @mixin m-labels-buttons-bold-text {
     @include m-labels-buttons-text;
     font-weight: $m-labels-buttons-text-weight-bold;
+}
+
+// Formatting
+@mixin no-margin-padding  {
+    margin: $no-margin;
+    padding: $no-padding;
 }
