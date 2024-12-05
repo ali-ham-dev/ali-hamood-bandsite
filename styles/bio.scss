@@ -16,7 +16,7 @@
     max-height: 50rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     overflow: hidden;
 
     &__image {
@@ -57,4 +57,47 @@
             @include m-page-header-text;
         }
     }
+}
+
+.about {
+    margin-left: $margin-side-offset;
+    overflow: hidden;
+
+    @include tablet {
+        margin-left: $t-margin-side-offset;
+    }
+
+    @include mobile {
+        margin-left: $m-margin-side-offset;
+    }
+
+    &__title {
+        @include section-header-text;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            @include m-section-header-text;
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
+    }
+
+    &__image-box {
+        overflow: hidden;
+        //TODO: find a different way to set the height.
+        height: 500px;
+        display: flex;
+        align-content: center;
+    }
+
+    &__image {
+        width: 70%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.gallery {
+    overflow: hidden;
 }
