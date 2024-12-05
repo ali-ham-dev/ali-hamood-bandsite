@@ -121,9 +121,14 @@
 }
 
 // Formatting
+
 @mixin no-margin-padding  {
     margin: $no-margin;
     padding: $no-padding;
+}
+
+@mixin nav-boarder {
+    border-bottom: $nav-border-thickness $nav-border-style $primary-white;
 }
 
 

@@ -17,11 +17,86 @@ body {
 }
 
 %band-site-logo {
-    @include subheader-text;
     @include no-margin-padding;
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-weight: 100;
+    font-size: 1.25rem;
+    max-width: 7.5rem;
 }
 
 %link {
     text-decoration: none;
     color: inherit;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+        display: block;
+    }
+
+    &__title {
+        @extend %band-site-logo;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+        margin-left: $margin-side-offset;
+        margin-right: $margin-two;
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            display: flex;
+            justify-self: center;
+            align-self: center;
+            margin: auto 0;
+            margin-top: $m-headline-margin-before;
+        }
+    }
+
+    &__list {
+        @extend %nav-list;
+        @include labels-buttons-text;
+        display:  flex;
+
+        @include mobile {
+            justify-content: space-between;
+        }
+    }
+
+    &__list-item {
+        margin: 0 $margin-one;
+        padding-top: $headline-margin-before;
+        padding-bottom: $headline-margin-after;
+        text-align: center;
+
+        @include mobile {
+            padding-top: $m-headline-margin-before;
+            padding-bottom: $m-headline-margin-after;
+            flex-grow: 1;
+            margin: 0;
+        }
+
+        &:hover {
+            @include labels-buttons-text;
+            @include nav-boarder;
+            color: $primary-white;
+        }
+    }
+
+    &__list-item--active {
+        @include labels-buttons-bold-text;
+        @include nav-boarder;
+    }
+
+    &__list-item--inactive {
+        color: $secondary-mercury;
+    }
+
+    &__link {
+        @extend %link;
+    }
 }
