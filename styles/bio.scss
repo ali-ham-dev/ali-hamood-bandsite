@@ -12,13 +12,12 @@
 .nav {
     display: flex;
     align-items: baseline;
-    height: inherit;
 
     &__title {
         @extend %band-site-logo;
         margin-top: $headline-margin-before;
         margin-bottom: $headline-margin-after;
-        margin-left: 10%;
+        margin-left: $margin-side-offset;
         margin-right: $margin-one;
     }
 
@@ -29,13 +28,24 @@
     }
 
     &__list-item {
-        margin-left: $margin-one;
-        margin-right: $margin-one;
+        margin: 0 $margin-one;
+        padding-top: $headline-margin-before;
+        padding-bottom: $headline-margin-after;
+
+        &:hover {
+            @include body-text;
+            color: $primary-white;
+            border-bottom: 3px solid $primary-white;
+        }
     }
 
-    &__list-item--selected {
+    &__list-item--active {
         @include body-bold-text;
         border-bottom: 3px solid $primary-white;
+    }
+
+    &__list-item--inactive {
+        color: $secondary-mercury;
     }
 
     &__link {
@@ -49,7 +59,9 @@
     position: relative;
     width: 100%;
     height: fit-content;
+    max-height: 50rem;
     display: flex;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
 
@@ -73,9 +85,10 @@
     }
 
     &__title {
-        position: relative;
-        top: 0;
-        left: 10%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: $margin-side-offset;
         z-index: 2;
         color: $primary-white;
         @include page-header-text;
