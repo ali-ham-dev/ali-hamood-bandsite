@@ -125,3 +125,18 @@
     margin: $no-margin;
     padding: $no-padding;
 }
+
+
+// Responsive
+
+@mixin tablet {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: $mobile) {
+        @content;
+    }
+}

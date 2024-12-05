@@ -88,11 +88,10 @@ $m-headline-margin-after: 1rem;
 $m-margin-between: 1rem;
 
 $margin-side-offset: 11rem;
-$t-margin-side-offset: 11rem;
+$t-margin-side-offset: 5rem;
 $m-margin-side-offset: 1rem;
 
 // Screen brake points. 
 
-$desktop: 1280px;
-$tablet: 768px;
-$mobile: 320px;
+$tablet: 1279px;
+$mobile: 767px;
