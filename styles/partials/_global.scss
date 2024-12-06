@@ -12,10 +12,8 @@
 
 %band-site-logo {
     @include no-margin-padding;
-    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    @include subheader-text;
     font-weight: 100;
-    font-size: 1.25rem;
-    max-width: 7.5rem;
 }
 
 %link {
@@ -39,10 +37,8 @@ body {
 
     &__title {
         @extend %band-site-logo;
-        margin-top: $headline-margin-before;
-        margin-bottom: $headline-margin-after;
         margin-left: $margin-side-offset;
-        margin-right: $margin-two;
+        margin-right: $margin-three-half;
 
         @include tablet {
             margin-left: $t-margin-side-offset;
@@ -59,7 +55,7 @@ body {
 
     &__list {
         @extend %nav-list;
-        @include labels-buttons-text;
+        @include body-text;
         display:  flex;
 
         @include mobile {
@@ -68,9 +64,10 @@ body {
     }
 
     &__list-item {
-        margin: 0 $margin-one;
-        padding-top: $headline-margin-before;
-        padding-bottom: $headline-margin-after;
+        @include body-text;
+        margin: auto $margin-one;
+        padding-top: $nav-item-top-margin;
+        padding-bottom: $headline-padding-after;
         text-align: center;
 
         @include mobile {
@@ -81,14 +78,14 @@ body {
         }
 
         &:hover {
-            @include labels-buttons-text;
+            @include body-text;
             @include nav-boarder;
             color: $primary-white;
         }
     }
 
     &__list-item--active {
-        @include labels-buttons-bold-text;
+        @include body-bold-text;
         @include nav-boarder;
     }
 

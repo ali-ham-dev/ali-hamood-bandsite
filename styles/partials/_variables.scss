@@ -77,6 +77,15 @@ $padding-one: 1rem;
 $margin-two: 2rem;
 $padding-two: 2rem;
 
+$margin-two-half: 2.5rem;
+$padding-two-half: 2.5rem;
+
+$margin-three: 3rem;
+$padding-three: 3rem;
+
+$margin-three-half: 3.5rem;
+$padding-three-half: 3.5rem;
+
 $headline-padding-before: 3rem;
 $headline-padding-after: 2.25rem;
 $padding-between: 2.25rem;
@@ -106,3 +115,9 @@ $mobile: 767px;
 
 $nav-border-thickness: 4px;
 $nav-border-style: solid;
+$nav-item-top-margin: $headline-padding-before - 0.4rem;
+
+// about
+
+$about-margin-offset: 6rem;
+$t-about-margin-offset: 3.5rem;
