@@ -190,4 +190,48 @@
 .gallery {
     background-color: $secondary-alabaster;
     overflow: hidden;
+
+    &__margin-container {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+            margin-right: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            margin-left: $m-margin-side-offset;
+            margin-right: $m-margin-side-offset;
+        }
+    }
+
+    &__title {
+        @include section-header-text;
+        display: block;
+
+        @include mobile {
+            @include m-section-header-text;
+        }
+    }
+
+    &__picture-wall {
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: space-between;
+    }
+    
+    &__picture-box {
+        width: 20rem;
+        height: auto;
+        margin-right: $margin-one;
+        margin-bottom: $margin-one;
+    }
+
+    &__picture {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
 }
