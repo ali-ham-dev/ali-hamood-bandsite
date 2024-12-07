@@ -194,6 +194,7 @@
     &__margin-container {
         margin-left: $margin-side-offset;
         margin-right: $margin-side-offset;
+        margin-bottom: $margin-two;
 
         @include tablet {
             margin-left: $t-margin-side-offset;
@@ -215,18 +216,24 @@
         }
     }
 
-    // TODO: work on gallery wall. 
     &__picture-wall {
-        display: flex;
-        flex-wrap: wrap;
-        // justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $margin-one;
+        width: 100%;
+
+        @include tablet {
+            gap: $margin-one-half;
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
     
     &__picture-box {
-        width: 20rem;
+        width: 100%;
         height: auto;
-        margin-right: $margin-one;
-        margin-bottom: $margin-one;
     }
 
     &__picture {
