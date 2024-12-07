@@ -61,6 +61,13 @@
     font-weight: $labels-buttons-text-weight-bold;
 }
 
+@mixin quote-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $quote-text-text-size;
+    line-height: $quote-text-text-size;
+    font-weight: bold;
+}
+
 // Mobile text styles.
 
 @mixin m-page-header-text {

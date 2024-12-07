@@ -102,10 +102,11 @@
         }
     }
 
+    // TODO: image height and width. 
     &__image-box {
         overflow: hidden;
         width: 100%;
-        height: 500px;
+        height: 450px;
         display: flex;
         align-content: center;
         justify-content: center;
@@ -121,6 +122,11 @@
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+
+    &__quote-text {
+        margin-right: 9rem;
+        @include quote-text;
     }
 }
 
