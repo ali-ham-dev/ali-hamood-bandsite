@@ -215,6 +215,7 @@
         }
     }
 
+    // TODO: work on gallery wall. 
     &__picture-wall {
         display: flex;
         flex-wrap: wrap;
@@ -233,5 +234,10 @@
         height: auto;
         object-fit: cover;
     }
-    
+}
+
+.contact {
+    background-color: $primary-black;
+    color: $primary-white;
+    overflow: hidden;
 }
