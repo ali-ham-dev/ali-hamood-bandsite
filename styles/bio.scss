@@ -102,7 +102,6 @@
         }
     }
 
-    // TODO: image height and width. 
     &__image-box {
         overflow: hidden;
         width: 100%;
@@ -134,6 +133,14 @@
     &__quote-text {
         margin-right: 9rem;
         @include quote-text;
+
+        @include tablet {
+            margin-right: 0;
+        }
+
+        @include mobile {
+            margin-right: 0;
+        }
     }
 
     &__quote-author {
@@ -142,6 +149,10 @@
 
     &__article-text-container {
         display: flex;
+
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     &__article-title {
@@ -149,15 +160,30 @@
         margin-bottom: $margin-one;
         @include subheader-text;
         display: block;
+
+        @include mobile {
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $margin-half;
+            @include m-subheader-text;
+        }
     }
 
     &__article-text {
         @include body-text;
         width: 50%;
+
+        @include mobile {
+            width: 100%;
+            @include m-body-text;
+        }
     }
 
     &__article-text--margin {
-        margin-right: 1rem;
+        margin-right: $margin-one;
+
+        @include mobile {
+            margin-right: 0rem;
+        }
     }
 }
 
