@@ -124,12 +124,40 @@
         object-fit: cover;
     }
 
+    // TODO: implement cellphone and tablet. 
+    // TODO: fix minor text inconsistency. 
+
     &__quote-text {
         margin-right: 9rem;
         @include quote-text;
     }
+
+    &__quote-author {
+        @include body-bold-text;
+    }
+
+    &__article-text-container {
+        display: flex;
+    }
+
+    &__article-title {
+        margin-top: $headline-margin-before;
+        margin-bottom: $margin-one;
+        @include subheader-text;
+        display: block;
+    }
+
+    &__article-text {
+        @include body-text;
+        width: 50%;
+    }
+
+    &__article-text--margin {
+        margin-right: 1rem;
+    }
 }
 
 .gallery {
+    background-color: $secondary-alabaster;
     overflow: hidden;
 }
