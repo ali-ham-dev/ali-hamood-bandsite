@@ -127,9 +127,6 @@
         object-fit: cover;
     }
 
-    // TODO: implement cellphone and tablet. 
-    // TODO: fix minor text inconsistency. 
-
     &__quote-text {
         margin-right: 9rem;
         @include quote-text;
@@ -247,4 +244,47 @@
     background-color: $primary-black;
     color: $primary-white;
     overflow: hidden;
+
+    &__margin-container {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+            margin-right: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            margin-left: $m-margin-side-offset;
+            margin-right: $m-margin-side-offset;
+        }
+    }
+
+    &__title {
+        @include section-header-text;
+        display: block;
+
+        @include mobile {
+            @include m-section-header-text;
+        }
+    }
+
+    &__media-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__media-logos {
+        margin-right: 40%;
+    }
+
+    &__media-logo {
+        margin-right: 2rem;
+    }
+
+    &__company-logo {
+        @extend %band-site-logo;
+    }
 }
