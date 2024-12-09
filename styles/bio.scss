@@ -201,6 +201,7 @@
         @include mobile {
             margin-left: $m-margin-side-offset;
             margin-right: $m-margin-side-offset;
+            margin-bottom: 0;
         }
     }
 
@@ -212,31 +213,47 @@
             @include m-section-header-text;
         }
     }
-
-    // TODO: TA said to use flex box and not a grid. 
+ 
     &__picture-wall {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: $margin-one;
-        width: 100%;
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-        @include tablet {
-            gap: $margin-one-half;
-        }
+    &__picture-wall-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
         @include mobile {
-            grid-template-columns: repeat(1, 1fr);
+            flex-direction: column;
+        }
+    }
+
+    &__picture-wall--column-margin {
+        margin-right: $margin-one;
+    }
+
+    &__picture-wall--row-margin {
+        margin-bottom: $margin-one;
+
+        @include mobile {
+            margin: 0;
         }
     }
     
     &__picture-box {
         width: 100%;
-        height: auto;
+        height: 100%;
+
+        @include mobile {
+            margin-bottom: $margin-one;
+        }
     }
 
     &__picture {
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: cover;
     }
 }
@@ -332,25 +349,30 @@
     &__info {
         display: flex;
         justify-content: space-between;
-        width: 50%;
+        flex-direction: row;
+        width: 70%;
 
         @include mobile {
             flex-direction: column;
             width: 100%;
+            height: 30rem;
         }
     }
 
     &__info-card {
-        margin-right: 7rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 10rem;
+        height: 9rem;
+        min-width: 15rem;
+
+        @include mobile {
+            margin-bottom: $margin-two;
+        }
     }
 
     &__info-title {
         @include footer-body-text;
-        display: block;
         margin: $no-margin;
     }
 
