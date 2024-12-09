@@ -213,6 +213,7 @@
         }
     }
 
+    // TODO: TA said to use flex box and not a grid. 
     &__picture-wall {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -260,31 +261,119 @@
         }
     }
 
+    &__media-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            flex-direction: column;
+            align-items: start;
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
+    }
+
     &__title {
         @include section-header-text;
         display: block;
+        margin: $no-margin;
 
         @include mobile {
             @include m-section-header-text;
         }
     }
 
-    &__media-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
+    &__media-logos {
+        margin-left: $margin-three;
+
+        @include tablet {
+            margin-left: $margin-two;
+        }
+
+        @include mobile {
+            margin-left: 0;
+            margin-top: $margin-one;
+        }
     }
 
-    &__media-logos {
-        margin-right: 40%;
+    &__media-logo-link {
+        @extend %link;
     }
 
     &__media-logo {
         margin-right: 2rem;
+        height: 1.25rem;
+        width: auto;
     }
 
     &__company-logo {
         @extend %band-site-logo;
+        margin-left: auto;
+
+        &--desktop-n-tablet {
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &--mobile {
+            display: none;
+
+            @include mobile {
+                display: block;
+                margin-top: $m-headline-margin-before;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+
+        @include mobile {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    &__info-card {
+        margin-right: 7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 10rem;
+    }
+
+    &__info-title {
+        @include footer-body-text;
+        display: block;
+        margin: $no-margin;
+    }
+
+    &__info-address {
+        @include footer-text;
+        width: 11rem;
+        margin: $no-margin;
+    }
+
+    &__info-email {
+        @extend %link;
+        @include footer-text;
+        margin: $no-margin;
+    }
+
+    &__site-copy-right {
+        @extend %site-copy-right;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
     }
 }

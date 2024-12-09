@@ -21,6 +21,10 @@
     color: inherit;
 }
 
+%site-copy-right {
+    @include body-text;
+}
+
 body {
     margin: $no-margin;
     padding: $no-padding;
