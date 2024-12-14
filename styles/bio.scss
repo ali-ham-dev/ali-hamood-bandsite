@@ -1,0 +1,401 @@
+@use './partials/global' as *;
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+@use './partials/typography' as *;
+
+.header {
+    background-color: $primary-black;
+    color: $primary-white;
+    overflow: hidden;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    max-height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    overflow: hidden;
+
+    &__image {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-black;
+        opacity: 50%;
+        z-index: 1;
+    }
+
+    &__title {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: $margin-side-offset;
+        z-index: 2;
+        color: $primary-white;
+        @include page-header-text;
+        @include no-margin-padding;
+
+        @include tablet {
+            left: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            left: $m-margin-side-offset;
+            @include m-page-header-text;
+        }
+    }
+}
+
+.about {
+    margin-left: $margin-side-offset;
+    margin-right: $margin-side-offset;
+    overflow: hidden;
+
+    @include tablet {
+        margin-left: $t-margin-side-offset;
+        margin-right: $t-margin-side-offset;
+    }
+
+    @include mobile {
+        margin-left: $m-margin-side-offset;
+        margin-right: $m-margin-side-offset;
+    }
+
+    &__title {
+        @include section-header-text;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            @include m-section-header-text;
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
+    }
+
+    &__content-margins {
+        margin-left: $about-margin-offset;
+        margin-right: $about-margin-offset;
+
+        
+        @include tablet {
+            margin-left: $t-about-margin-offset;
+            margin-right: $t-about-margin-offset;
+        }
+    
+        @include mobile {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    &__image-box {
+        overflow: hidden;
+        width: 100%;
+        height: 30rem;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        @include tablet {
+            height: 25rem;
+        }
+    
+        @include mobile {
+            height: 15rem;
+            flex-wrap: wrap;
+            align-content: end;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__quote-text {
+        margin-right: 9rem;
+        @include quote-text;
+
+        @include tablet {
+            margin-right: 0;
+        }
+
+        @include mobile {
+            margin-right: 0;
+        }
+    }
+
+    &__quote-author {
+        @include body-bold-text;
+    }
+
+    &__article-text-container {
+        display: flex;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    &__article-title {
+        margin-top: $headline-margin-before;
+        margin-bottom: $margin-one;
+        @include subheader-text;
+        display: block;
+
+        @include mobile {
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $margin-half;
+            @include m-subheader-text;
+        }
+    }
+
+    &__article-text {
+        @include body-text;
+        width: 50%;
+
+        @include mobile {
+            width: 100%;
+            @include m-body-text;
+        }
+    }
+
+    &__article-text--margin {
+        margin-right: $margin-one;
+
+        @include mobile {
+            margin-right: 0rem;
+        }
+    }
+}
+
+.gallery {
+    background-color: $secondary-alabaster;
+    overflow: hidden;
+
+    &__margin-container {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
+        margin-bottom: $margin-two;
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+            margin-right: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            margin-left: $m-margin-side-offset;
+            margin-right: $m-margin-side-offset;
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        @include section-header-text;
+        display: block;
+
+        @include mobile {
+            @include m-section-header-text;
+        }
+    }
+ 
+    &__picture-wall {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__picture-wall-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    &__picture-wall--column-margin {
+        margin-right: $margin-one;
+    }
+
+    &__picture-wall--row-margin {
+        margin-bottom: $margin-one;
+
+        @include mobile {
+            margin: 0;
+        }
+    }
+    
+    &__picture-box {
+        width: 100%;
+        height: 100%;
+
+        @include mobile {
+            margin-bottom: $margin-one;
+        }
+    }
+
+    &__picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.contact {
+    background-color: $primary-black;
+    color: $primary-white;
+    overflow: hidden;
+
+    &__margin-container {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+            margin-right: $t-margin-side-offset;
+        }
+
+        @include mobile {
+            margin-left: $m-margin-side-offset;
+            margin-right: $m-margin-side-offset;
+        }
+    }
+
+    &__media-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            flex-direction: column;
+            align-items: start;
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
+    }
+
+    &__title {
+        @include section-header-text;
+        display: block;
+        margin: $no-margin;
+
+        @include mobile {
+            @include m-section-header-text;
+        }
+    }
+
+    &__media-logos {
+        margin-left: $margin-three;
+
+        @include tablet {
+            margin-left: $margin-two;
+        }
+
+        @include mobile {
+            margin-left: 0;
+            margin-top: $margin-one;
+        }
+    }
+
+    &__media-logo-link {
+        @extend %link;
+    }
+
+    &__media-logo {
+        margin-right: 2rem;
+        height: 1.25rem;
+        width: auto;
+    }
+
+    &__company-logo {
+        @extend %band-site-logo;
+        margin-left: auto;
+
+        &--desktop-n-tablet {
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &--mobile {
+            display: none;
+
+            @include mobile {
+                display: block;
+                margin-top: $m-headline-margin-before;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 70%;
+
+        @include mobile {
+            flex-direction: column;
+            width: 100%;
+            height: 30rem;
+        }
+    }
+
+    &__info-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 9rem;
+        min-width: 15rem;
+
+        @include mobile {
+            margin-bottom: $margin-two;
+        }
+    }
+
+    &__info-title {
+        @include footer-body-text;
+        margin: $no-margin;
+    }
+
+    &__info-address {
+        @include footer-text;
+        width: 11rem;
+        margin: $no-margin;
+    }
+
+    &__info-email {
+        @extend %link;
+        @include footer-text;
+        margin: $no-margin;
+    }
+
+    &__site-copy-right {
+        @extend %site-copy-right;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+
+        @include mobile {
+            margin-top: $m-headline-margin-before;
+            margin-bottom: $m-headline-margin-after;
+        }
+    }
+}

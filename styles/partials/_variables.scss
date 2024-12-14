@@ -1,0 +1,128 @@
+// Desktop and tablet text styles.
+
+$page-header-text-size: 3.75rem;
+$page-header-line-height: 4.25rem;
+$page-header-text-weight: 700;
+
+$section-header-text-size: 2.25rem;
+$section-header-line-height: 2.75rem;
+$section-header-text-weight: 700;
+
+$subheader-text-size: 1.5rem;
+$subheader-line-height: 2rem;
+$subheader-text-weight: 500;
+
+$body-text-size: 0.875rem;
+$body-line-height: 1.375rem;
+$body-text-weight: 400;
+$body-text-weight-bold: 700;
+
+$footer-text-size: 0.875rem;
+$footer-line-height: 1.25rem;
+$footer-text-weight: 400;
+$footer-text-weight-bold: 700;
+
+$labels-buttons-text-size: 0.75rem;
+$labels-buttons-line-height: 1.25rem;
+$labels-buttons-text-weight: 400;
+$labels-buttons-text-weight-bold: 700;
+
+$quote-text-text-size: 1.25rem;
+
+// Mobile text styles.
+
+$m-page-header-text-size: 1.5rem;
+$m-page-header-line-height: 2rem;
+$m-page-header-text-weight: 700;
+
+$m-section-header-text-size: 1.5rem;
+$m-section-header-line-height: 2rem;
+$m-section-header-text-weight: 700;
+
+$m-subheader-text-size: 0.875rem;
+$m-subheader-line-height: 1.375rem;
+$m-subheader-text-weight: 600;
+
+$m-body-text-size: 0.8125rem;
+$m-body-line-height: 1.125rem;
+$m-body-text-weight: 400;
+
+$m-footer-text-size: 0.8125rem;
+$m-footer-line-height: 1.125rem;
+$m-footer-text-weight: 400;
+
+$m-labels-buttons-text-size: 0.625rem;
+$m-labels-buttons-line-height: 1.25rem;
+$m-labels-buttons-text-weight: 700;
+
+// Colors
+
+$primary-black: #323232;
+$primary-silver: #AFAFAF;
+$primary-white: #FFFFFF;
+
+$secondary-dark-black: #000000;
+$secondary-mercury: #E1E1E1;
+$secondary-alabaster: #FAFAFA;
+
+// Margin and padding.
+
+$no-margin: 0;
+$no-padding: 0;
+
+$margin-half: 0.5rem;
+$padding-half: 0.5rem;
+
+$margin-one: 1rem;
+$padding-one: 1rem;
+
+$margin-one-half: 1.5rem;
+$padding-one-half: 1.5rem;
+
+$margin-two: 2rem;
+$padding-two: 2rem;
+
+$margin-two-half: 2.5rem;
+$padding-two-half: 2.5rem;
+
+$margin-three: 3rem;
+$padding-three: 3rem;
+
+$margin-three-half: 3.5rem;
+$padding-three-half: 3.5rem;
+
+$headline-padding-before: 3rem;
+$headline-padding-after: 2.25rem;
+$padding-between: 2.25rem;
+
+$headline-margin-before: 3rem;
+$headline-margin-after: 2.25rem;
+$margin-between: 2.25rem;
+
+$m-headline-padding-before: 1.5rem;
+$m-headline-padding-after: 1rem;
+$m-padding-between: 1rem;
+
+$m-headline-margin-before: 1.5rem;
+$m-headline-margin-after: 1rem;
+$m-margin-between: 1rem;
+
+$margin-side-offset: 11rem;
+$t-margin-side-offset: 3rem;
+$m-margin-side-offset: 1rem;
+
+// Screen brake points. 
+
+$tablet: 1279px;
+$mobile: 767px;
+
+// Nav
+
+$nav-border-thickness: 4px;
+$nav-border-style: solid;
+$nav-item-top-margin: $headline-padding-before - 0.4rem;
+
+// about
+
+$about-margin-offset: 6rem;
+$t-about-margin-offset: 3rem;

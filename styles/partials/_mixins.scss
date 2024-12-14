@@ -1,0 +1,154 @@
+@use './variables' as *;
+@use './typography' as *;
+
+
+// Desktop and tablet text styles.
+
+@mixin page-header-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $page-header-text-size;
+    line-height: $page-header-line-height;
+    font-weight: $page-header-text-weight;
+}
+
+@mixin section-header-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $section-header-text-size;
+    line-height: $section-header-line-height;
+    font-weight: $section-header-text-weight;
+}
+
+@mixin subheader-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $subheader-text-size;
+    line-height: $subheader-line-height;
+    font-weight: $subheader-text-weight;
+}
+
+@mixin body-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $body-text-size;
+    line-height: $body-line-height;
+    font-weight: $body-text-weight;
+}
+
+@mixin body-bold-text {
+    @include body-text;
+    font-weight: $body-text-weight-bold;
+}
+
+@mixin footer-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $footer-text-size;
+    line-height: $footer-line-height;
+    font-weight: $footer-text-weight;
+}
+
+@mixin footer-body-text {
+    @include footer-text;
+    font-weight: $footer-text-weight-bold;
+}
+
+@mixin labels-buttons-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $labels-buttons-text-size;
+    line-height: $labels-buttons-line-height;
+    font-weight: $labels-buttons-text-weight;
+}
+
+@mixin labels-buttons-bold-text {
+    @include labels-buttons-text;
+    font-weight: $labels-buttons-text-weight-bold;
+}
+
+@mixin quote-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $quote-text-text-size;
+    line-height: $quote-text-text-size;
+    font-weight: bold;
+}
+
+// Mobile text styles.
+
+@mixin m-page-header-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-page-header-text-size;
+    line-height: $m-page-header-line-height;
+    font-weight: $m-page-header-text-weight;
+}
+
+@mixin m-section-header-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-section-header-text-size;
+    line-height: $m-section-header-line-height;
+    font-weight: $m-section-header-text-weight;
+}
+
+@mixin m-subheader-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-subheader-text-size;
+    line-height: $m-subheader-line-height;
+    font-weight: $m-subheader-text-weight;
+}
+
+@mixin m-body-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-body-text-size;
+    line-height: $m-body-line-height;
+    font-weight: $m-body-text-weight;
+}
+
+@mixin m-body-bold-text {
+    @include m-body-text;
+    font-weight: $m-body-text-weight-bold;
+}
+
+@mixin m-footer-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-footer-text-size;
+    line-height: $m-footer-line-height;
+    font-weight: $m-footer-text-weight;
+}
+
+@mixin m-footer-body-text {
+    @include m-footer-text;
+    font-weight: $m-footer-text-weight-bold;
+}
+
+@mixin m-labels-buttons-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $m-labels-buttons-text-size;
+    line-height: $m-labels-buttons-line-height;
+    font-weight: $m-labels-buttons-text-weight;
+}
+
+@mixin m-labels-buttons-bold-text {
+    @include m-labels-buttons-text;
+    font-weight: $m-labels-buttons-text-weight-bold;
+}
+
+// Formatting
+
+@mixin no-margin-padding  {
+    margin: $no-margin;
+    padding: $no-padding;
+}
+
+@mixin nav-boarder {
+    border-bottom: $nav-border-thickness $nav-border-style $primary-white;
+}
+
+
+// Responsive
+
+@mixin tablet {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: $mobile) {
+        @content;
+    }
+}
