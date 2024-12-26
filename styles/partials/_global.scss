@@ -30,6 +30,9 @@ body {
     padding: $no-padding;
 }
 
+.link {
+    @extend %link;
+}
 
 .nav {
     display: flex;
