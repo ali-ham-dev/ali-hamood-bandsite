@@ -127,6 +127,13 @@
     font-weight: $m-labels-buttons-text-weight-bold;
 }
 
+@mixin m-quote-text {
+    font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
+    font-size: $quote-text-text-size;
+    line-height: $m-quote-text-text-size;
+    font-weight: bold;
+}
+
 // Formatting
 
 @mixin no-margin-padding  {
