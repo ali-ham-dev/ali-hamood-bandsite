@@ -136,13 +136,19 @@
         }
 
         @include mobile {
-            margin-right: 0;
             @include m-quote-text;
+            margin-right: $no-margin;
+            margin-bottom: $no-margin;
         }
     }
 
     &__quote-author {
         @include body-bold-text;
+
+        @include mobile {
+            @include m-quote-text;
+            margin-top: $margin-half;
+        }
     }
 
     &__article-text-container {

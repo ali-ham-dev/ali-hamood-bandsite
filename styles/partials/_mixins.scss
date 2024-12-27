@@ -129,8 +129,8 @@
 
 @mixin m-quote-text {
     font-family: "nunito-sans", "sans-serif", "Arial", "Helvetica";
-    font-size: $quote-text-text-size;
-    line-height: $m-quote-text-text-size;
+    font-size: $m-quote-text-text-size;
+    line-height: $m-quote-text-height;
     font-weight: bold;
 }
 
