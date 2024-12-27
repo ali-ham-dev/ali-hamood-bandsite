@@ -54,7 +54,7 @@
 
         @include mobile {
             left: $m-margin-side-offset;
-            @include m-page-header-text;
+            @include m-section-header-text;
         }
     }
 }
