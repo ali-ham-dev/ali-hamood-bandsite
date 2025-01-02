@@ -148,6 +148,12 @@
 
 // Responsive
 
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
 @mixin tablet {
     @media screen and (max-width: $tablet) {
         @content;
