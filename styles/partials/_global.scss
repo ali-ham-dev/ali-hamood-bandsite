@@ -73,25 +73,22 @@ body {
         @extend %nav-list;
         @include body-text;
         display:  flex;
-
-        @include mobile-deprecating {
-            justify-content: space-between;
-        }
+        justify-content: space-between;
     }
 
     &__list-item {
         @include body-text;
         @include nav-boarder;
-        margin: auto $margin-one;
-        padding-top: $nav-item-top-margin;
-        padding-bottom: $headline-padding-after;
         text-align: center;
+        padding-top: $padding-half;
+        padding-bottom: $m-headline-margin-after;
+        margin: 0;
+        flex-grow: 1;
 
-        @include mobile-deprecating {
-            padding-top: $padding-half;
-            padding-bottom: $m-headline-margin-after;
-            flex-grow: 1;
-            margin: 0;
+        @include tablet-and-desktop {
+            padding-top: $nav-item-top-margin;
+            padding-bottom: $headline-padding-after;
+            margin: auto $margin-one;
         }
 
         &:hover {
