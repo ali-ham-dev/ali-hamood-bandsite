@@ -48,11 +48,11 @@
         @include page-header-text;
         @include no-margin-padding;
 
-        @include tablet {
+        @include tablet-deprecating {
             left: $t-margin-side-offset;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             left: $m-margin-side-offset;
             @include m-section-header-text;
         }
@@ -64,12 +64,12 @@
     margin-right: $margin-side-offset;
     overflow: hidden;
 
-    @include tablet {
+    @include tablet-deprecating {
         margin-left: $t-margin-side-offset;
         margin-right: $t-margin-side-offset;
     }
 
-    @include mobile {
+    @include mobile-deprecating {
         margin-left: $m-margin-side-offset;
         margin-right: $m-margin-side-offset;
     }
@@ -79,7 +79,7 @@
         margin-top: $headline-margin-before;
         margin-bottom: $headline-margin-after;
 
-        @include mobile {
+        @include mobile-deprecating {
             @include m-section-header-text;
             margin-top: $m-headline-margin-before;
             margin-bottom: $m-headline-margin-after;
@@ -91,12 +91,12 @@
         margin-right: $about-margin-offset;
 
         
-        @include tablet {
+        @include tablet-deprecating {
             margin-left: $t-about-margin-offset;
             margin-right: $t-about-margin-offset;
         }
     
-        @include mobile {
+        @include mobile-deprecating {
             margin-left: 0;
             margin-right: 0;
         }
@@ -110,11 +110,11 @@
         align-content: center;
         justify-content: center;
 
-        @include tablet {
+        @include tablet-deprecating {
             height: 25rem;
         }
     
-        @include mobile {
+        @include mobile-deprecating {
             height: 15rem;
             flex-wrap: wrap;
             align-content: end;
@@ -131,11 +131,11 @@
         margin-right: 9rem;
         @include quote-text;
 
-        @include tablet {
+        @include tablet-deprecating {
             margin-right: 0;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             @include m-quote-text;
             margin-right: $no-margin;
             margin-bottom: $no-margin;
@@ -145,7 +145,7 @@
     &__quote-author {
         @include body-bold-text;
 
-        @include mobile {
+        @include mobile-deprecating {
             @include m-quote-text;
             margin-top: $margin-half;
         }
@@ -154,7 +154,7 @@
     &__article-text-container {
         display: flex;
 
-        @include mobile {
+        @include mobile-deprecating {
             flex-direction: column;
         }
     }
@@ -165,7 +165,7 @@
         @include subheader-text;
         display: block;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-top: $m-headline-margin-before;
             margin-bottom: $margin-half;
             @include m-subheader-text;
@@ -176,7 +176,7 @@
         @include body-text;
         width: 50%;
 
-        @include mobile {
+        @include mobile-deprecating {
             width: 100%;
             @include m-body-text;
         }
@@ -185,7 +185,7 @@
     &__article-text--margin {
         margin-right: $margin-one;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-right: 0rem;
         }
     }
@@ -200,12 +200,12 @@
         margin-right: $margin-side-offset;
         margin-bottom: $margin-two;
 
-        @include tablet {
+        @include tablet-deprecating {
             margin-left: $t-margin-side-offset;
             margin-right: $t-margin-side-offset;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-left: $m-margin-side-offset;
             margin-right: $m-margin-side-offset;
             margin-bottom: 0;
@@ -216,7 +216,7 @@
         @include section-header-text;
         display: block;
 
-        @include mobile {
+        @include mobile-deprecating {
             @include m-section-header-text;
         }
     }
@@ -232,7 +232,7 @@
         flex-direction: row;
         justify-content: space-between;
 
-        @include mobile {
+        @include mobile-deprecating {
             flex-direction: column;
         }
     }
@@ -244,7 +244,7 @@
     &__picture-wall--row-margin {
         margin-bottom: $margin-one;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin: 0;
         }
     }
@@ -253,7 +253,7 @@
         width: 100%;
         height: 100%;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-bottom: $margin-one;
         }
     }
@@ -274,12 +274,12 @@
         margin-left: $margin-side-offset;
         margin-right: $margin-side-offset;
 
-        @include tablet {
+        @include tablet-deprecating {
             margin-left: $t-margin-side-offset;
             margin-right: $t-margin-side-offset;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-left: $m-margin-side-offset;
             margin-right: $m-margin-side-offset;
         }
@@ -292,7 +292,7 @@
         margin-top: $headline-margin-before;
         margin-bottom: $headline-margin-after;
 
-        @include mobile {
+        @include mobile-deprecating {
             flex-direction: column;
             align-items: start;
             margin-top: $m-headline-margin-before;
@@ -305,7 +305,7 @@
         display: block;
         margin: $no-margin;
 
-        @include mobile {
+        @include mobile-deprecating {
             @include m-section-header-text;
         }
     }
@@ -313,11 +313,11 @@
     &__media-logos {
         margin-left: $margin-three;
 
-        @include tablet {
+        @include tablet-deprecating {
             margin-left: $margin-two;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-left: 0;
             margin-top: $margin-one;
         }
@@ -338,7 +338,7 @@
         margin-left: auto;
 
         &--desktop-n-tablet {
-            @include mobile {
+            @include mobile-deprecating {
                 display: none;
             }
         }
@@ -346,7 +346,7 @@
         &--mobile {
             display: none;
 
-            @include mobile {
+            @include mobile-deprecating {
                 display: block;
                 margin-top: $m-headline-margin-before;
             }
@@ -359,7 +359,7 @@
         flex-direction: row;
         width: 70%;
 
-        @include mobile {
+        @include mobile-deprecating {
             flex-direction: column;
             width: 100%;
             height: 30rem;
@@ -373,7 +373,7 @@
         height: 9rem;
         min-width: 15rem;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-bottom: $margin-two;
         }
     }
@@ -400,7 +400,7 @@
         margin-top: $headline-margin-before;
         margin-bottom: $headline-margin-after;
 
-        @include mobile {
+        @include mobile-deprecating {
             margin-top: $m-headline-margin-before;
             margin-bottom: $m-headline-margin-after;
         }

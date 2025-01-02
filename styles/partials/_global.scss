@@ -38,7 +38,7 @@ body {
     display: flex;
     align-items: center;
 
-    @include mobile {
+    @include mobile-deprecating {
         display: block;
     }
 
@@ -47,11 +47,11 @@ body {
         margin-left: $margin-side-offset;
         margin-right: $margin-three-half;
 
-        @include tablet {
+        @include tablet-deprecating {
             margin-left: $t-margin-side-offset;
         }
 
-        @include mobile {
+        @include mobile-deprecating {
             display: flex;
             justify-self: center;
             align-self: center;
@@ -65,7 +65,7 @@ body {
         @include body-text;
         display:  flex;
 
-        @include mobile {
+        @include mobile-deprecating {
             justify-content: space-between;
         }
     }
@@ -78,7 +78,7 @@ body {
         padding-bottom: $headline-padding-after;
         text-align: center;
 
-        @include mobile {
+        @include mobile-deprecating {
             padding-top: $padding-half;
             padding-bottom: $m-headline-margin-after;
             flex-grow: 1;

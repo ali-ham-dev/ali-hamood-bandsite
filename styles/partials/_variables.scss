@@ -117,8 +117,9 @@ $m-margin-side-offset: 1rem;
 // Screen brake points. 
 
 $desktop: 1280px;
-$tablet: 1279px;
-$mobile: 767px;
+$tablet: 768px;
+$tablet-deprecating: 1279px;
+$mobile-deprecating: 767px;
 
 // Nav
 
