@@ -150,13 +150,19 @@
 // Responsive
 
 @mixin desktop {
-    @media screen and (min-width: $desktop) {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin tablet-and-desktop {
+    @media (min-width: $tablet-min) {
         @content;
     }
 }
 
 @mixin tablet {
-    @media screen and (min-width: $tablet) {
+    @media (max-width: $tablet-max) and (min-width: $tablet-min) {
         @content;
     }
 }

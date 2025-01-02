@@ -35,28 +35,37 @@ body {
 }
 
 .nav {
-    display: flex;
-    align-items: center;
+    display: block;
 
-    @include mobile-deprecating {
-        display: block;
+    @include desktop {
+        display: flex;
+        align-items: center;
+    }
+
+    @include tablet {
+        display: flex;
+        align-items: center;
     }
 
     &__title {
         @extend %band-site-logo;
-        margin-left: $margin-side-offset;
-        margin-right: $margin-three-half;
-
-        @include tablet-deprecating {
-            margin-left: $t-margin-side-offset;
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        margin-top: $m-headline-margin-before;
+        
+        @include tablet-and-desktop {
+            margin: auto 0;
+            margin-right: $margin-three-half;
+            display: block;
         }
 
-        @include mobile-deprecating {
-            display: flex;
-            justify-self: center;
-            align-self: center;
-            margin: auto 0;
-            margin-top: $m-headline-margin-before;
+        @include desktop {
+            margin-left: $margin-side-offset;
+        }
+
+        @include tablet {
+            margin-left: $t-margin-side-offset;
         }
     }
 
