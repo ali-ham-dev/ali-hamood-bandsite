@@ -142,7 +142,8 @@
 }
 
 @mixin nav-boarder {
-    border-bottom: $nav-border-thickness $nav-border-style $primary-white;
+    border-bottom: $nav-border-thickness $nav-border-style transparent;
+    transition: border-color 0.3s ease;
 }
 
 

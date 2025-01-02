@@ -72,6 +72,7 @@ body {
 
     &__list-item {
         @include body-text;
+        @include nav-boarder;
         margin: auto $margin-one;
         padding-top: $nav-item-top-margin;
         padding-bottom: $headline-padding-after;
@@ -86,14 +87,14 @@ body {
 
         &:hover {
             @include body-text;
-            @include nav-boarder;
+            border-color: $primary-white;
             color: $primary-white;
         }
     }
 
     &__list-item--active {
         @include body-bold-text;
-        @include nav-boarder;
+        border-color: $primary-white;
     }
 
     &__list-item--inactive {
