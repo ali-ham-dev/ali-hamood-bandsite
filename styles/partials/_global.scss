@@ -43,12 +43,12 @@ body {
 .nav {
     display: block;
 
-    @include desktop {
+    @include tablet {
         display: flex;
         align-items: center;
     }
 
-    @include tablet {
+    @include desktop {
         display: flex;
         align-items: center;
     }
@@ -59,19 +59,20 @@ body {
         justify-self: center;
         align-self: center;
         margin-top: $m-headline-margin-before;
+           
         
         @include tablet-and-desktop {
             margin: auto 0;
             margin-right: $margin-three-half;
             display: block;
         }
-
-        @include desktop {
-            margin-left: $margin-side-offset;
-        }
-
+        
         @include tablet {
             margin-left: $t-margin-side-offset;
+        }
+        
+        @include desktop {
+            margin-left: $margin-side-offset;
         }
     }
 
@@ -157,16 +158,16 @@ body {
         @include no-margin-padding;
         @include m-section-header-text;
 
-        @include desktop {
-            left: $margin-side-offset;
-        }
-
         @include tablet {
             left: $t-margin-side-offset;
         }
 
         @include tablet-and-desktop {
             @include page-header-text;
+        }
+        
+        @include desktop {
+            left: $margin-side-offset;
         }
     }
 }
@@ -180,14 +181,14 @@ body {
         margin-left: $m-margin-side-offset;
         margin-right: $m-margin-side-offset;
         
-        @include desktop {
-            margin-left: $margin-side-offset;
-            margin-right: $margin-side-offset;            
-        }
-
         @include tablet {
             margin-left: $t-margin-side-offset;
             margin-right: $t-margin-side-offset;
+        }
+
+        @include desktop {
+            margin-left: $margin-side-offset;
+            margin-right: $margin-side-offset;            
         }
     }
 
@@ -221,12 +222,11 @@ body {
         margin-left: 0;
         margin-top: $margin-one;
         
-        @include tablet-and-desktop {
-            margin-left: $margin-three;
-        }
-
         @include tablet {
             margin-left: $margin-two;
+        }
+        @include tablet-and-desktop {
+            margin-left: $margin-three;
         }
     }
 

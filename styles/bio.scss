@@ -208,3 +208,25 @@
         object-fit: cover;
     }
 }
+
+.comments {
+    @include home-page-margins;
+
+    &__margin-wrapper {
+        margin: $no-margin;
+
+        @include tablet {
+            margin-left: $t-about-margin-offset;
+            margin-right: $t-about-margin-offset;
+        }
+
+        @include desktop {
+            // TODO: apply desktop margins. 
+        }
+    }
+
+    &__profile-picture {
+        width: 100%;
+        height: auto;
+    }
+}

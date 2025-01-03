@@ -146,6 +146,21 @@
     transition: border-color 0.3s ease;
 }
 
+@mixin home-page-margins {
+    margin-left: $m-margin-side-offset;
+    margin-right: $m-margin-side-offset;
+
+    @include tablet {
+        margin-left: $t-margin-side-offset;
+        margin-right: $t-margin-side-offset;
+    }
+
+    @include desktop {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
+    }
+}
+
 
 // Responsive
 
