@@ -177,55 +177,56 @@ body {
     overflow: hidden;
 
     &__margin-container {
-        margin-left: $margin-side-offset;
-        margin-right: $margin-side-offset;
-
-        @include tablet-deprecating {
-            margin-left: $t-margin-side-offset;
-            margin-right: $t-margin-side-offset;
+        margin-left: $m-margin-side-offset;
+        margin-right: $m-margin-side-offset;
+        
+        @include desktop {
+            margin-left: $margin-side-offset;
+            margin-right: $margin-side-offset;            
         }
 
-        @include mobile-deprecating {
-            margin-left: $m-margin-side-offset;
-            margin-right: $m-margin-side-offset;
+        @include tablet {
+            margin-left: $t-margin-side-offset;
+            margin-right: $t-margin-side-offset;
         }
     }
 
     &__media-header {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
-        margin-top: $headline-margin-before;
-        margin-bottom: $headline-margin-after;
+        flex-direction: column;
+        align-items: start;
+        margin-top: $m-headline-margin-before;
+        margin-bottom: $m-headline-margin-after;
 
-        @include mobile-deprecating {
-            flex-direction: column;
-            align-items: start;
-            margin-top: $m-headline-margin-before;
-            margin-bottom: $m-headline-margin-after;
+        @include tablet-and-desktop {
+            flex-direction: row;
+            align-items: center;
+            margin-top: $headline-margin-before;
+            margin-bottom: $headline-margin-after;
         }
     }
 
     &__title {
-        @include section-header-text;
+        @include m-section-header-text;
         display: block;
         margin: $no-margin;
-
-        @include mobile-deprecating {
-            @include m-section-header-text;
+        
+        @include tablet-and-desktop {
+            @include section-header-text;
         }
     }
 
     &__media-logos {
-        margin-left: $margin-three;
-
-        @include tablet-deprecating {
-            margin-left: $margin-two;
+        margin-left: 0;
+        margin-top: $margin-one;
+        
+        @include tablet-and-desktop {
+            margin-left: $margin-three;
         }
 
-        @include mobile-deprecating {
-            margin-left: 0;
-            margin-top: $margin-one;
+        @include tablet {
+            margin-left: $margin-two;
         }
     }
 
@@ -244,17 +245,19 @@ body {
         margin-left: auto;
 
         &--desktop-n-tablet {
-            @include mobile-deprecating {
-                display: none;
+            display: none;
+
+            @include tablet-and-desktop {
+                display: block;
             }
         }
 
         &--mobile {
-            display: none;
+            display: block;
+            margin-top: $m-headline-margin-before;
 
-            @include mobile-deprecating {
-                display: block;
-                margin-top: $m-headline-margin-before;
+            @include tablet-and-desktop {
+                display: none;
             }
         }
     }
@@ -262,13 +265,14 @@ body {
     &__info {
         display: flex;
         justify-content: space-between;
-        flex-direction: row;
-        width: 70%;
+        flex-direction: column;
+        width: 100%;
+        height: 30rem;
 
-        @include mobile-deprecating {
-            flex-direction: column;
-            width: 100%;
-            height: 30rem;
+        @include tablet-and-desktop {
+            flex-direction: row;
+            width: 70%;
+            height: auto;
         }
     }
 
@@ -278,9 +282,10 @@ body {
         justify-content: space-between;
         height: 9rem;
         min-width: 15rem;
+        margin-bottom: $margin-two;
 
-        @include mobile-deprecating {
-            margin-bottom: $margin-two;
+        @include tablet-and-desktop {
+            margin-bottom: $no-margin;
         }
     }
 
@@ -303,12 +308,12 @@ body {
 
     &__site-copy-right {
         @extend %site-copy-right;
-        margin-top: $headline-margin-before;
-        margin-bottom: $headline-margin-after;
+        margin-top: $m-headline-margin-before;
+        margin-bottom: $m-headline-margin-after;
 
-        @include mobile-deprecating {
-            margin-top: $m-headline-margin-before;
-            margin-bottom: $m-headline-margin-after;
+        @include tablet-and-desktop {
+            margin-top: $headline-margin-before;
+            margin-bottom: $headline-margin-after;
         }
     }
 }
