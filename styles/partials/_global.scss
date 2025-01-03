@@ -151,19 +151,22 @@ body {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: $margin-side-offset;
         z-index: 2;
         color: $primary-white;
-        @include page-header-text;
+        left: $m-margin-side-offset;
         @include no-margin-padding;
+        @include m-section-header-text;
 
-        @include tablet-deprecating {
+        @include desktop {
+            left: $margin-side-offset;
+        }
+
+        @include tablet {
             left: $t-margin-side-offset;
         }
 
-        @include mobile-deprecating {
-            left: $m-margin-side-offset;
-            @include m-section-header-text;
+        @include tablet-and-desktop {
+            @include page-header-text;
         }
     }
 }
