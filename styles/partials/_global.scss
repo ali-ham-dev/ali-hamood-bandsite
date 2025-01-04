@@ -25,6 +25,46 @@
     @include body-text;
 }
 
+%labels {
+    @include m-labels-buttons-bold-text;
+    color: $primary-silver;
+
+    @include tablet-and-desktop {
+        @include labels-buttons-bold-text;
+    }
+}
+
+%input-control {
+    @include m-body-text;
+    border-radius: $margin-quarter;
+    border: $input-text-boarder-thickness $input-text-boarder-style $primary-silver;
+
+    @include tablet-and-desktop {
+        @include body-text;
+    }
+
+    &:focus {
+        border-color: $secondary-dark-black;
+    }
+}
+
+%button {
+    @include m-labels-buttons-bold-text;
+    border: none;
+    border-radius: $margin-quarter;
+    background-color: $primary-black;
+    color: $primary-white;
+
+    @include tablet-and-desktop {
+        @include labels-buttons-bold-text;
+    }
+
+    &:hover {
+        background-color: $secondary-dark-black;
+    }
+
+}
+
 body {
     margin: $no-margin;
     padding: $no-padding;
@@ -66,7 +106,7 @@ body {
             margin-right: $margin-three-half;
             display: block;
         }
-        
+
         @include tablet {
             margin-left: $t-margin-side-offset;
         }

@@ -264,4 +264,23 @@
         height: inherit;
         width: auto;
     }
+
+    &__form-label {
+        @extend %labels;
+        display: block;
+    }
+
+    &__form-user-name {
+        @extend %input-control;
+    }
+
+    &__form-user-comment {
+        @extend %input-control;
+        resize: none;
+    }
+
+    &__form-submit-button {
+        @extend %button;
+        display: block;
+    }
 }

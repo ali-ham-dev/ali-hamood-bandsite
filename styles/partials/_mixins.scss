@@ -100,7 +100,7 @@
 
 @mixin m-body-bold-text {
     @include m-body-text;
-    font-weight: $m-body-text-weight-bold;
+    font-weight: $body-text-weight-bold;
 }
 
 @mixin m-footer-text {
@@ -124,7 +124,7 @@
 
 @mixin m-labels-buttons-bold-text {
     @include m-labels-buttons-text;
-    font-weight: $m-labels-buttons-text-weight-bold;
+    font-weight: $labels-buttons-text-weight-bold;
 }
 
 @mixin m-quote-text {
