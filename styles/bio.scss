@@ -244,13 +244,15 @@
         }
 
         @include desktop {
-            // TODO: apply desktop margins. 
+            justify-self: center;
+            width: 45%;
         }
     }
 
     &__form {
         display: flex;
         flex-direction: row;
+        // flex: 1;
     }
 
     &__profile {
@@ -290,14 +292,6 @@
         margin-bottom: $margin-quarter;
     }
 
-    // &__form-label--height {
-    //     height: $m-avatar-height;
-
-    //     @include tablet-and-desktop {
-    //         height: $avatar-height;
-    //     }
-    // }
-
     &__form-label--top-margin {
         margin-top: $margin-one;
     }
@@ -305,12 +299,10 @@
     &__form-user-name {
         @extend %input-control;
         width: 100%;
-        // min-height: $margin-two-quarter;
         height: $m-avatar-height;
         box-sizing: border-box;
 
         @include tablet-and-desktop {
-            // min-height: $margin-three;
             height: $avatar-height;
         }
     }
@@ -320,6 +312,7 @@
         resize: none;
         width: 100%;
         min-height: $m-comment-box-height;
+        box-sizing: border-box;
         
         @include tablet-and-desktop {
             min-height: $comment-box-height; 
