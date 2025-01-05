@@ -38,6 +38,7 @@
     @include m-body-text;
     border-radius: $margin-quarter;
     border: $input-text-boarder-thickness $input-text-boarder-style $primary-silver;
+    background-color: $secondary-alabaster;
 
     @include tablet-and-desktop {
         @include body-text;
@@ -46,17 +47,21 @@
     &:focus {
         border-color: $secondary-dark-black;
     }
+
+    &::placeholder {
+        color: $secondary-dark-black;
+    }
 }
 
 %button {
-    @include m-labels-buttons-bold-text;
+    @include m-body-bold-text;
     border: none;
     border-radius: $margin-quarter;
     background-color: $primary-black;
     color: $primary-white;
 
     @include tablet-and-desktop {
-        @include labels-buttons-bold-text;
+        @include body-bold-text;
     }
 
     &:hover {

@@ -51,7 +51,7 @@ $m-footer-text-size: 0.8125rem;
 $m-footer-line-height: 1.125rem;
 $m-footer-text-weight: 400;
 
-$m-labels-buttons-text-size: 0.625rem;
+$m-labels-buttons-text-size: 0.70rem;
 $m-labels-buttons-line-height: 1.25rem;
 $m-labels-buttons-text-weight: 700;
 
@@ -74,9 +74,13 @@ $no-margin: 0;
 $no-padding: 0;
 
 $margin-quarter: 0.25rem;
+$padding-quarter: 0.25rem;
 
 $margin-half: 0.5rem;
 $padding-half: 0.5rem;
+
+$margin-three-quarter: 0.75rem;
+$padding-three-quarter: 0.75rem;
 
 $margin-one: 1rem;
 $padding-one: 1rem;
@@ -86,6 +90,9 @@ $padding-one-half: 1.5rem;
 
 $margin-two: 2rem;
 $padding-two: 2rem;
+
+$margin-two-quarter: 2.25rem;
+$padding-two-quarter: 2.25rem;
 
 $margin-two-half: 2.5rem;
 $padding-two-half: 2.5rem;
@@ -147,3 +154,6 @@ $m-avatar-height: 2.25rem;
 
 $input-text-boarder-style: solid; 
 $input-text-boarder-thickness: 0.0625rem; 
+
+$m-comment-box-height: 8.375rem;
+$comment-box-height: 8.375rem;
