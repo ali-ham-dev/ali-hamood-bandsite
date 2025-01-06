@@ -79,6 +79,11 @@ body {
     @extend %link;
 }
 
+.horizontal-line {
+    width: 100%;
+    border-bottom: $horizontal-line-thickness $horizontal-line-style $primary-silver;
+}
+
 .header {
     background-color: $primary-black;
     color: $primary-white;
