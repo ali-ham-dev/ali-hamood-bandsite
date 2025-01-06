@@ -319,6 +319,10 @@
         }
     }
 
+    &__form--error {
+        border-color: $error-state;
+    }
+
     &__form-submit-button {
         @extend %button;
         display: block;

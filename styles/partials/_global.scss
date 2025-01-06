@@ -45,7 +45,8 @@
     }
 
     &:focus {
-        border-color: $secondary-dark-black;
+        outline: none;
+        border: $input-text-boarder-thickness $input-text-boarder-style $secondary-dark-black;
     }
 
     &::placeholder {
