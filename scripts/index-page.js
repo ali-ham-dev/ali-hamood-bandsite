@@ -66,6 +66,9 @@ function submitCommentHandler(event) {
         return;
     }
 
+    event.target.comment.value = '';
+    event.target.userName.value = '';
+
     comments.push({
         userName: userName,
         comment: userComment,
