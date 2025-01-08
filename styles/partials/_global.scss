@@ -71,6 +71,11 @@
 
 }
 
+%horizontal-line {
+    width: 100%;
+    border-bottom: $horizontal-line-thickness $horizontal-line-style $primary-silver;
+}
+
 body {
     margin: $no-margin;
     padding: $no-padding;
@@ -78,11 +83,6 @@ body {
 
 .link {
     @extend %link;
-}
-
-.horizontal-line {
-    width: 100%;
-    border-bottom: $horizontal-line-thickness $horizontal-line-style $primary-silver;
 }
 
 .header {

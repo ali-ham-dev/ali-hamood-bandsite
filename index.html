@@ -118,7 +118,7 @@
             <h2 class="comments__title">Join the Conversation</h2>
             <div class="comments__margin-wrapper">
                 <form id="commentsForm" class="comments__form">
-                    <figure class="comments__profile">
+                    <figure class="comments__profile comments__profile--form">
                         <img src="./assets/images/Mohan-muruge.jpg" alt="User's profile picture" class="comments__profile-picture"> 
                     </figure>
                     <div class="comments__form-fields">
@@ -129,8 +129,23 @@
                         <button class="comments__form-submit-button" type="submit">COMMENT</button>
                     </div>
                 </form>
-                <div class="horizontal-line"></div>
-                <ul id="commentsSection" class="comments__section"></ul>
+                <div class="comments__horizontal-line"></div>
+                <article class="comments__comment">
+                    <figure class="comments__profile comments__profile--comment"></figure>
+                    <div class="comments__comment-content">
+                        <div class="comments__comment-header">
+                            <h3 class="comments__comment-user-name">Victor Pinto</h3>
+                            <time class="comments__comment-date" datetime="11/02/2023">11/02/2023</time>
+                        </div>
+                        <p class="comments__text">
+                            This is art. This is inexplicable magic 
+                            expressed in the purest way, everything 
+                            that makes up this majestic work 
+                            deserves reverence. Let us appreciate 
+                            this for what it is and what it contains.
+                        </p>
+                    </div>
+                </article>
             </div>
         </section>
     </main>

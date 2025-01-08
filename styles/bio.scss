@@ -252,7 +252,6 @@
     &__form {
         display: flex;
         flex-direction: row;
-        // flex: 1;
     }
 
     &__profile {
@@ -267,12 +266,18 @@
         justify-content: center;
         align-content: center;
         margin: $no-margin;
-        margin-right: $margin-one;
-        margin-top: $margin-one-half;
 
         @include tablet-and-desktop {
             height: $avatar-height;
             width: $avatar-width;
+        }
+    }
+
+    &__profile--form {
+        margin-right: $margin-one;
+        margin-top: $margin-one-half;
+
+        @include tablet-and-desktop {
             margin-right: $margin-half;
         }
     }
@@ -301,9 +306,11 @@
         width: 100%;
         height: $m-avatar-height;
         box-sizing: border-box;
+        padding: $no-padding $padding-three-quarter;
 
         @include tablet-and-desktop {
             height: $avatar-height;
+            padding: $no-padding $padding-one;
         }
     }
 
@@ -313,9 +320,11 @@
         width: 100%;
         min-height: $m-comment-box-height;
         box-sizing: border-box;
+        padding: $padding-half $padding-three-quarter;
         
         @include tablet-and-desktop {
             min-height: $comment-box-height; 
+            padding: $padding-three-quarter $padding-one;
         }
     }
 
@@ -329,13 +338,65 @@
         height: $margin-two-half;
         width: 100%;
         min-width: 9.375rem;
-        padding: 0rem $margin-two;
-        margin: $margin-one 0rem;
+        padding: 0rem $padding-two;
+        margin-top: $margin-one;
 
         @include tablet-and-desktop {
             width: 9.375rem;
-            margin: $margin-one-half 0rem;
+            margin-top: $margin-one-half;
             justify-self: end;
+        }
+    }
+
+    &__horizontal-line {
+        @extend %horizontal-line;
+        margin-top: $margin-one;
+        margin-bottom: $margin-one;
+    }
+
+    &__comment {
+        display: flex;
+    }
+
+    &__profile--comment {
+        margin-right: $margin-one;
+
+        @include tablet-and-desktop {
+            margin-right: $margin-half;
+        }
+    }
+
+    &__comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $margin-half;
+    }
+
+    &__comment-user-name {
+        @include m-body-bold-text;
+        margin: 0rem;
+
+        @include tablet-and-desktop {
+            @include body-bold-text;
+        }
+    }
+
+    &__comment-date {
+        @include m-body-text;
+        color: $primary-silver;
+        margin: 0rem;
+
+        @include tablet-and-desktop {
+            @include body-text;
+        }
+    }
+
+    &__text {
+        @include m-body-text;
+        margin: 0rem;
+
+        @include tablet-and-desktop {
+            @include body-text;
         }
     }
 }
