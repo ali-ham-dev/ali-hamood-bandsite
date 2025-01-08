@@ -1,8 +1,8 @@
 const commentForm = document.getElementById('commentsForm');
-const commentSection = document.getElementById('commentsSection');
 
 const minUserNameLen = 3;
 const minCommentLen = minUserNameLen;
+
 const redBorderStyleClass = 'comments__form--error';
 
 const comments = [
@@ -79,13 +79,17 @@ function submitCommentHandler(event) {
 }
 
 function renderComments() {
+    const commentSection = document.getElementById('commentsSection');
+
     for (let comment of comments) {
         if (!comment.rendered) {
+
+            comment.rendered = true;
+            
             console.log('User Name: ' + comment.userName);
             console.log('User comment: ' + comment.comment);
             console.log('Date: ' + comment.commentDate);
             console.log('\n');
-            comment.rendered = true;
         }
     }
 }
