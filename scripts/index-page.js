@@ -3,7 +3,17 @@ const commentForm = document.getElementById('commentsForm');
 const minUserNameLen = 3;
 const minCommentLen = minUserNameLen;
 
+const horizontalLineClass = 'comments__horizontal-line';
+
 const redBorderStyleClass = 'comments__form--error';
+const commentWrapperClass = 'comments__comment';
+const profilePicClass = 'comments__profile';
+const commentProfilePicClass = 'comments__profile--comment';
+const commentContentClass = 'comments__comment-content';
+const commentHeaderClass = 'comments__comment-header';
+const commentUserNameClass = 'comments__comment-user-name';
+const commentDateClass = 'comments__comment-date';
+const commentTextClass = 'comments__text';
 
 const comments = [
     {
@@ -33,6 +43,75 @@ const comments = [
         rendered: false,
     },
 ];
+
+function getFormateDate(date) {
+    let dateString = '';
+
+    dateString += String(date.getMonth() + 1).padStart(2, '0') + '/';
+    dateString += String(date.getDate()).padStart(2, '0') + '/';
+    dateString += date.getFullYear();
+
+    return dateString;
+}
+
+function createHorizontalLineHTML() {
+    const horizontalLine = document.createElement('div');
+    horizontalLine.classList.add(horizontalLineClass);
+    return horizontalLine;
+}
+
+function createCommentHTML(userName, comment, date) {
+    const articalEl = document.createElement('article');
+    const figureEl = document.createElement('figure');
+    const commentContentEl = document.createElement('div');
+    const commentHeaderEl = document.createElement('div');
+    const commentUserNameEl = document.createElement('h3');
+    const commentDateNameEl = document.createElement('time');
+    const commentTextEl = document.createElement('p');
+
+    articalEl.classList.add(commentWrapperClass);
+    figureEl.classList.add(profilePicClass);
+    figureEl.classList.add(commentProfilePicClass);
+    commentContentEl.classList.add(commentContentClass);
+    commentHeaderEl.classList.add(commentHeaderClass);
+    commentUserNameEl.classList.add(commentUserNameClass);
+    commentDateNameEl.classList.add(commentDateClass);
+    commentTextEl.classList.add(commentTextClass);
+
+    commentUserNameEl.innerText = userName;
+    commentDateNameEl.innerText = getFormateDate(date);
+    commentDateNameEl.setAttribute('datetime', date.toISOString());
+    commentTextEl.innerText = comment;
+
+    commentHeaderEl.appendChild(commentUserNameEl);
+    commentHeaderEl.appendChild(commentDateNameEl);
+
+    commentContentEl.appendChild(commentHeaderEl);
+    commentContentEl.appendChild(commentTextEl);
+
+    articalEl.appendChild(figureEl);
+    articalEl.appendChild(commentContentEl);
+
+    return articalEl;
+}
+
+function renderComments() {
+    const commentSection = document.getElementById('commentsSection');
+
+    for (let comment of comments) {
+        if (!comment.rendered) {
+            const htmlComment = createCommentHTML(comment.userName, comment.comment, comment.commentDate);
+            commentSection.appendChild(htmlComment);
+            commentSection.appendChild(createHorizontalLineHTML());
+            comment.rendered = true;
+            
+            console.log('User Name: ' + comment.userName);
+            console.log('User comment: ' + comment.comment);
+            console.log('Date: ' + comment.commentDate);
+            console.log('\n');
+        }
+    }
+}
 
 function submitCommentHandler(event) {
     event.preventDefault();
@@ -76,22 +155,6 @@ function submitCommentHandler(event) {
     });
 
     renderComments();
-}
-
-function renderComments() {
-    const commentSection = document.getElementById('commentsSection');
-
-    for (let comment of comments) {
-        if (!comment.rendered) {
-
-            comment.rendered = true;
-            
-            console.log('User Name: ' + comment.userName);
-            console.log('User comment: ' + comment.comment);
-            console.log('Date: ' + comment.commentDate);
-            console.log('\n');
-        }
-    }
 }
 
 commentForm.addEventListener('submit', submitCommentHandler);
