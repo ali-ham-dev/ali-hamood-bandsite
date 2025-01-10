@@ -104,11 +104,6 @@ function renderComments() {
             commentSection.appendChild(htmlComment);
             commentSection.appendChild(createHorizontalLineHTML());
             comment.rendered = true;
-            
-            console.log('User Name: ' + comment.userName);
-            console.log('User comment: ' + comment.comment);
-            console.log('Date: ' + comment.commentDate);
-            console.log('\n');
         }
     }
 }
