@@ -236,7 +236,10 @@
     }
 
     &__margin-wrapper {
+        display: flex;
+        flex-direction: column;
         margin: $no-margin;
+        align-items: stretch;
 
         @include tablet {
             margin-left: $t-about-margin-offset;
@@ -244,7 +247,7 @@
         }
 
         @include desktop {
-            justify-self: center;
+            margin: 0rem auto;
             width: 45%;
         }
     }
@@ -252,6 +255,7 @@
     &__form {
         display: flex;
         flex-direction: row;
+        width: 100%;
     }
 
     &__profile {
@@ -344,7 +348,7 @@
         @include tablet-and-desktop {
             width: 9.375rem;
             margin-top: $margin-one-half;
-            justify-self: end;
+            margin-left: auto;
         }
     }
 
@@ -356,6 +360,8 @@
 
     &__comment {
         display: flex;
+        width: 100%;
+        overflow: hidden;
     }
 
     &__profile--comment {
@@ -368,8 +374,8 @@
 
     &__comment-header {
         display: flex;
-        justify-content: space-between;
         margin-bottom: $margin-half;
+        justify-content: space-between;
     }
 
     &__comment-user-name {

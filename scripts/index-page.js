@@ -3,7 +3,9 @@ const commentForm = document.getElementById('commentsForm');
 const minUserNameLen = 3;
 const minCommentLen = minUserNameLen;
 
-const horizontalLineClass = 'comments__horizontal-line';
+const horizontalLineClass = 'comments__horizontal-line'; 
+const commentSectionId = 'comments-section'; 
+const commentsFirstHorizontalLineId = 'comments-first-horizontal-line';
 
 const redBorderStyleClass = 'comments__form--error';
 const commentWrapperClass = 'comments__comment';
@@ -17,11 +19,11 @@ const commentTextClass = 'comments__text';
 
 const comments = [
     {
-        userName: 'Victor Pinto',
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, ' + 
-        'everything that makes up this majestic work deserves reverence. Let us appreciate' +
-        ' this for what it is and what it contains.',
-        commentDate: new Date('11/02/2023'),
+        userName: 'Isaac Tadesse',
+        comment: 'I can\'t stop listening. Every time I hear one of their songs - the vocals ' +
+        '- it gives me goosebumps. Shivers straight down my spine. What a ' +
+        'beautiful expression of creativity. Can\'t get enough.',
+        commentDate: new Date('10/20/2023'),
         rendered: false,
     },
 
@@ -35,11 +37,11 @@ const comments = [
     },
 
     {
-        userName: 'Isaac Tadesse',
-        comment: 'I can\'t stop listening. Every time I hear one of their songs - the vocals ' +
-        '- it gives me goosebumps. Shivers straight down my spine. What a ' +
-        'beautiful expression of creativity. Can\'t get enough.',
-        commentDate: new Date('10/20/2023'),
+        userName: 'Victor Pinto',
+        comment: 'This is art. This is inexplicable magic expressed in the purest way, ' + 
+        'everything that makes up this majestic work deserves reverence. Let us appreciate' +
+        ' this for what it is and what it contains.',
+        commentDate: new Date('11/02/2023'),
         rendered: false,
     },
 ];
@@ -61,7 +63,7 @@ function createHorizontalLineHTML() {
 }
 
 function createCommentHTML(userName, comment, date) {
-    const articalEl = document.createElement('article');
+    const articleEl = document.createElement('article');
     const figureEl = document.createElement('figure');
     const commentContentEl = document.createElement('div');
     const commentHeaderEl = document.createElement('div');
@@ -69,7 +71,7 @@ function createCommentHTML(userName, comment, date) {
     const commentDateNameEl = document.createElement('time');
     const commentTextEl = document.createElement('p');
 
-    articalEl.classList.add(commentWrapperClass);
+    articleEl.classList.add(commentWrapperClass);
     figureEl.classList.add(profilePicClass);
     figureEl.classList.add(commentProfilePicClass);
     commentContentEl.classList.add(commentContentClass);
@@ -89,20 +91,21 @@ function createCommentHTML(userName, comment, date) {
     commentContentEl.appendChild(commentHeaderEl);
     commentContentEl.appendChild(commentTextEl);
 
-    articalEl.appendChild(figureEl);
-    articalEl.appendChild(commentContentEl);
+    articleEl.appendChild(figureEl);
+    articleEl.appendChild(commentContentEl);
 
-    return articalEl;
+    return articleEl;
 }
 
 function renderComments() {
-    const commentSection = document.getElementById('commentsSection');
+    const commentSection = document.getElementById(commentSectionId);
+    const commentsFirstHorizontalLine = document.getElementById(commentsFirstHorizontalLineId);
 
     for (let comment of comments) {
         if (!comment.rendered) {
             const htmlComment = createCommentHTML(comment.userName, comment.comment, comment.commentDate);
-            commentSection.appendChild(htmlComment);
-            commentSection.appendChild(createHorizontalLineHTML());
+            commentsFirstHorizontalLine.prepend(htmlComment);
+            commentsFirstHorizontalLine.prepend(createHorizontalLineHTML());
             comment.rendered = true;
         }
     }
