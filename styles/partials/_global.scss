@@ -76,6 +76,19 @@
     border-bottom: $horizontal-line-thickness $horizontal-line-style $primary-silver;
 }
 
+%section-title {
+    @include m-section-header-text;
+    display: block;
+    margin-top: $m-headline-margin-before;
+    margin-bottom: $m-headline-margin-after;
+    
+    @include tablet-and-desktop {
+        @include section-header-text;
+        margin-top: $headline-margin-before;
+        margin-bottom: $headline-margin-after;
+    }
+}
+
 body {
     margin: $no-margin;
     padding: $no-padding;
@@ -207,13 +220,7 @@ body {
     }
 
     &__title {
-        @include m-section-header-text;
-        display: block;
-        margin: $no-margin;
-        
-        @include tablet-and-desktop {
-            @include section-header-text;
-        }
+        @extend %section-title;
     }
 
     &__media-logos {

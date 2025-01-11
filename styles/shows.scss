@@ -83,3 +83,9 @@
         }
     }
 }
+
+.shows {
+    &__title {
+        @extend %section-title;
+    }
+}

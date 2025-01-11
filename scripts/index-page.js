@@ -1,4 +1,4 @@
-const commentForm = document.getElementById('commentsForm');
+const commentForm = document.getElementById('comments-form');
 
 const minUserNameLen = 3;
 const minCommentLen = minUserNameLen;
