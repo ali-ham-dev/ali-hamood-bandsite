@@ -85,7 +85,78 @@
 }
 
 .shows {
+    @include home-page-margins;
+
     &__title {
         @extend %section-title;
+    }
+
+    &__label {
+        @extend %labels;
+        display: block;
+        margin-top: $margin-one;
+
+        @include tablet-and-desktop {
+            display: none;
+        }
+    }
+
+    &__table-header {
+        display: none;
+
+        @include tablet-and-desktop {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    &__column-header {
+        @extend %labels; 
+    }
+
+    &__buy-ticket-form {
+        @include tablet-and-desktop {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            align-items: center;
+        }
+    }
+
+    &__show-info-text {
+        @include m-body-text;
+        margin: 0rem;
+
+        @include tablet-and-desktop {
+            @include body-text;
+        }
+    }
+
+    &__show-info-text-bold {
+        @include m-body-bold-text;
+        margin: 0rem;
+
+        @include tablet-and-desktop {
+            @include body-bold-text;
+        }
+    }
+
+    &__buy-ticket-button {
+        @extend %button;
+        display: block;
+        height: $margin-two-half;
+        width: 100%;
+        min-width: 9.375rem;
+        padding: 0rem $padding-two;
+        margin-top: $margin-one;
+
+        @include tablet-and-desktop {
+            margin: $no-margin;
+        }
+    }
+    
+    &__horizontal-line {
+        @extend %horizontal-line;
+        margin-top: $margin-one;
+        margin-bottom: $margin-one;
     }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../styles/shows.css" rel="stylesheet">
+    <script defer src="../scripts/build-shows-page.js"></script>
     <title>The Bees Knees</title>
 </head>
 <body>
@@ -26,30 +27,78 @@
             <div class="hero__overlay"></div>
             <h3 class="hero__text">Beautiful Beasts Album</h3>
             <h1 class="hero__title">Stripes of Yellow x For The Stings</h1>
+            <iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials"></iframe>
         </section>
     </header>
     <main>
         <section class="shows">
             <h2 class="shows__title">Shows</h2>
             <div class="shows__table-wrapper"> 
-                <div class="shows__table">
-                    <div class="shows__table-heading">
-                        <ul class="shows__table-heading-list">
-                            <il class="shows__table-heading-list-item">DATE</il>
-                            <il class="shows__table-heading-list-item">VENUE</il>
-                            <il class="shows__table-heading-list-item">Location</il>
-                        </ul>
-                    </div>
+                <div class="shows__table-header">
+                    <h3 class="shows__column-header">DATE</h3>
+                    <h3 class="shows__column-header">VENUE</h3>
+                    <h3 class="shows__column-header">LOCATION</h3>
                 </div>
-                <div class="shows__show-info">
-                    <ul class="shows__show-info-list">
-                        <il class="shows__show-info-list-item">Mon Sept 09 2024</il>
-                        <il class="shows__show-info-list-item">Ronald Lane</il>
-                        <il class="shows__show-info-list-item">San Francisco, CA</il>
-                    </ul>
-                    <button class="comments__form-submit-button" type="submit">COMMENT</button>
-                </div>
-                <div id="comments-first-horizontal-line" class="comments__horizontal-line"></div>
+                <form id="buy-ticket-form-1" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Mon Sept 09 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">Ronald Lane</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
+                <form id="buy-ticket-form-2" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Tue Sept 17 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">Pier 3 East</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
+                <form id="buy-ticket-form-3" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Sat Oct 12 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">View Lounge</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
+                <form id="buy-ticket-form-4" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Sat Nov 16 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">Hyatt Agency</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
+                <form id="buy-ticket-form-5" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Fri Nov 29 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">Mascow Center</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
+                <form id="buy-ticket-form-6" class="shows__buy-ticket-form">
+                    <label class="shows__label">DATE</label>
+                    <span class="shows__show-info-text-bold">Wed Dec 18 2024</span>
+                    <label class="shows__label">VENUE</label>
+                    <span class="shows__show-info-text">Press Club</span>
+                    <label class="shows__label">LOCATION</label>
+                    <span class="shows__show-info-text">San Francisco, CA</span>
+                    <button class="shows__buy-ticket-button" type="submit">BUY TICKETS</button>
+                </form>
+                <div class="shows__horizontal-line"></div>
             </div>
         </section>
     </main>
