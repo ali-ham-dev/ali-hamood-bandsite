@@ -188,6 +188,10 @@
         }
     }
 
+    &__buy-ticket-form--selected {
+        background-color: $secondary-mercury;
+    }
+
     &__show-info-text {
         @include m-body-text;
         margin: 0rem;

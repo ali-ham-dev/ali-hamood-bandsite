@@ -1,23 +1,10 @@
-// buyTicketButton1 = document.getElementById('buy-ticket-form-1');
-// buyTicketButton2 = document.getElementById('buy-ticket-form-2');
-// buyTicketButton3 = document.getElementById('buy-ticket-form-3');
-// buyTicketButton4 = document.getElementById('buy-ticket-form-4');
-// buyTicketButton5 = document.getElementById('buy-ticket-form-5');
-// buyTicketButton6 = document.getElementById('buy-ticket-form-6');
-
-// buyTicketButton1.addEventListener('submit', buyTicket);
-// buyTicketButton2.addEventListener('submit', buyTicket);
-// buyTicketButton3.addEventListener('submit', buyTicket);
-// buyTicketButton4.addEventListener('submit', buyTicket);
-// buyTicketButton5.addEventListener('submit', buyTicket);
-// buyTicketButton6.addEventListener('submit', buyTicket);
-
 const buyTicketFormCl = 'shows__buy-ticket-form';
 const showsLabelCl = 'shows__label';
 const showInfoBoldTextCl = 'shows__show-info-text-bold';
 const showInfoTextCl = 'shows__show-info-text';
 const buyTicketButtonCl = 'shows__buy-ticket-button';
 const horizontalLineClass = 'shows__horizontal-line'; 
+const buyTicketFormSelectedCl = 'shows__buy-ticket-form--selected';
 
 
 const shows = [
@@ -60,6 +47,22 @@ const shows = [
 
 function buyTicket(event) {
     event.preventDefault();
+
+    const selectedElements = document.querySelectorAll('.shows__buy-ticket-form--selected');
+    selectedElements?.forEach((element) => {
+        element.classList.remove('shows__buy-ticket-form--selected');
+    });
+}
+
+function userSelectedTicketElement(event) {
+    event.preventDefault();
+
+    const selectedElements = document.querySelectorAll('.shows__buy-ticket-form--selected');
+    selectedElements?.forEach((element) => {
+        element.classList.remove('shows__buy-ticket-form--selected');
+    });
+
+    event.target.classList.add(buyTicketFormSelectedCl);    
 }
 
 function createShowForm(date, venue, location) {
@@ -98,6 +101,7 @@ function createShowForm(date, venue, location) {
     showForm.appendChild(locationLabel);
     showForm.appendChild(locationEL);
     showForm.appendChild(buyTicketButton);
+    showForm.addEventListener('click', userSelectedTicketElement);
 
     return showForm;
 }
