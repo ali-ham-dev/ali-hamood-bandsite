@@ -94,6 +94,7 @@
         @include tablet {
             left: $t-margin-side-offset;
             top: 65%;
+            width: 50%;
         }
 
         @include desktop {
