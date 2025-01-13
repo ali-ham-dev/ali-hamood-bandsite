@@ -394,6 +394,11 @@
         }
     }
 
+    &__comment-content {
+        width: 100%;
+        overflow: hidden;
+    }
+
     &__comment-header {
         display: flex;
         margin-bottom: $margin-half;
