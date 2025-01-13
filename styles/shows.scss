@@ -87,8 +87,30 @@
 .shows {
     @include home-page-margins;
 
+    @include desktop {
+        display: flex;
+    }
+
     &__title {
         @extend %section-title;
+        margin-bottom: $no-margin;
+
+        @include desktop {
+            margin-right: 10rem;
+        }
+    }
+
+    &__table {
+        justify-self: right;
+        width: 100%;
+
+        @include tablet-and-desktop {
+            margin-top: 2rem;
+        }
+
+        @include desktop {
+            margin-top: 3rem;
+        }
     }
 
     &__label {
@@ -103,10 +125,14 @@
 
     &__table-header {
         display: none;
+        padding-left: $margin-half;
+        padding-right: $margin-half;
 
         @include tablet-and-desktop {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding-left: $margin-one;
+            padding-right: $margin-one;
         }
     }
 
@@ -115,10 +141,23 @@
     }
 
     &__buy-ticket-form {
+        padding-top: $margin-one-half;
+        padding-bottom: $margin-one-half;
+        padding-left: $margin-half;
+        padding-right: $margin-half;
+
+        &:hover {
+            background-color: $secondary-alabaster;
+        }
+
         @include tablet-and-desktop {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             align-items: center;
+            padding-top: $margin-one-half;
+            padding-bottom: $margin-one-half;
+            padding-left: $margin-one;
+            padding-right: $margin-one;
         }
     }
 
@@ -156,7 +195,5 @@
     
     &__horizontal-line {
         @extend %horizontal-line;
-        margin-top: $margin-one;
-        margin-bottom: $margin-one;
     }
 }
