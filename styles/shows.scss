@@ -14,11 +14,10 @@
     overflow: hidden;
 
     &__image {
-        top: 0;
-        left: 0;
         width: 100%;
         height: auto;
         object-fit: cover;
+        align-items: center;
     }
 
     &__overlay {
@@ -35,7 +34,7 @@
     &__text {
         @include m-subheader-text;
         position: absolute;
-        top: 25%;
+        top: 10%;
         transform: translateY(-50%);
         z-index: 2;
         color: $primary-white;
@@ -44,7 +43,7 @@
 
         @include tablet {
             left: $t-margin-side-offset;
-            top: 30%;
+            top: 20%;
         }
 
         @include tablet-and-desktop {
@@ -60,7 +59,7 @@
     &__title {
         @include m-section-header-text;
         position: absolute;
-        top: 50%;
+        top: 25%;
         transform: translateY(-50%);
         z-index: 2;
         color: $primary-white;
@@ -71,6 +70,7 @@
         @include tablet {
             left: $t-margin-side-offset;
             width: 55%;
+            top: 45%;
         }
 
         @include tablet-and-desktop {
@@ -79,7 +79,30 @@
         
         @include desktop {
             left: $margin-side-offset;
-            width: 35%;
+            width: 40%;
+            top: 50%;
+        }
+    }
+
+    &__song {
+        position: absolute;
+        top: 45%;
+        left: $m-margin-side-offset;
+        z-index: 2;
+        width: 80%;
+
+        @include tablet {
+            left: $t-margin-side-offset;
+            top: 65%;
+        }
+
+        @include desktop {
+            top: 50%;
+            left: auto;
+            right: 10%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 30%;
         }
     }
 }
@@ -103,13 +126,16 @@
     &__table {
         justify-self: right;
         width: 100%;
+        margin-bottom: $margin-one;
 
-        @include tablet-and-desktop {
-            margin-top: 2rem;
+        @include tablet {
+            margin-top: $margin-two;
+            margin-bottom: $margin-one;
         }
 
         @include desktop {
-            margin-top: 3rem;
+            margin-top: $margin-three;
+            margin-bottom: $margin-two;
         }
     }
 

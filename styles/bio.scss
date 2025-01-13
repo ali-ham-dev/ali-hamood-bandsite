@@ -332,6 +332,7 @@
         height: $m-avatar-height;
         box-sizing: border-box;
         padding: $no-padding $padding-three-quarter;
+        margin-right: auto;
 
         @include tablet-and-desktop {
             height: $avatar-height;
