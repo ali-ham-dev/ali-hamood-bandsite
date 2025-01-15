@@ -6,7 +6,7 @@ const buyTicketButtonCl = 'shows__buy-ticket-button';
 const horizontalLineClass = 'shows__horizontal-line'; 
 const buyTicketFormSelectedCl = 'shows__buy-ticket-form--selected';
 
-
+// To be replaced.
 const shows = [
     {
         date: 'Mon Sept 09 2024',
