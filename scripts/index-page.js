@@ -5,7 +5,6 @@ const minCommentLen = minUserNameLen;
 
 const horizontalLineClass = 'comments__horizontal-line'; 
 const commentSectionId = 'comments-section'; 
-const commentsFirstHorizontalLineId = 'comments-first-horizontal-line';
 
 const redBorderStyleClass = 'comments__form--error';
 const commentWrapperClass = 'comments__comment';
@@ -16,6 +15,9 @@ const commentHeaderClass = 'comments__comment-header';
 const commentUserNameClass = 'comments__comment-user-name';
 const commentDateClass = 'comments__comment-date';
 const commentTextClass = 'comments__text';
+
+const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
+const bandSiteApi = new BandSiteApi(apiKey);
 
 const comments = [
     {
@@ -97,16 +99,39 @@ function createCommentHTML(userName, comment, date) {
     return articleEl;
 }
 
-function renderComments() {
-    const commentsFirstHorizontalLine = document.getElementById(commentsFirstHorizontalLineId);
+function removeAllComments() {
+    const commentWrapper = document.getElementById(commentSectionId);
+    const commentElements = document.getElementsByClassName(commentWrapperClass);
+    const horizontalLineElements = document.getElementsByClassName(horizontalLineClass);
+    
+    if (commentElements?.length) {
+        const total = commentElements.length - 1;
+        for (let i = total; 0 <= i; i--) {
+            commentWrapper.removeChild(commentElements[i]);
+        }
+    }
+    
+    if (horizontalLineElements?.length) {
+        const total = horizontalLineElements.length - 1;
+        for (let i = total; 0 <= i; i--) {
+            commentWrapper.removeChild(horizontalLineElements[i]);
+        }
+
+        const firstHorizontalLine = createHorizontalLineHTML();
+        commentWrapper.appendChild(firstHorizontalLine);
+    }
+}
+
+async function renderComments() {
+    removeAllComments();
+
+    const commentWrapper = document.getElementById(commentSectionId);
+    const comments = await bandSiteApi.getComments();
 
     for (let comment of comments) {
-        if (!comment.rendered) {
-            const htmlComment = createCommentHTML(comment.userName, comment.comment, comment.commentDate);
-            commentsFirstHorizontalLine.prepend(htmlComment);
-            commentsFirstHorizontalLine.prepend(createHorizontalLineHTML());
-            comment.rendered = true;
-        }
+        const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp));
+        commentWrapper.appendChild(htmlComment);
+        commentWrapper.appendChild(createHorizontalLineHTML());
     }
 }
 
