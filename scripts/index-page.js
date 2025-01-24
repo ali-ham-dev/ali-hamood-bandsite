@@ -98,7 +98,6 @@ function createCommentHTML(userName, comment, date) {
 }
 
 function renderComments() {
-    const commentSection = document.getElementById(commentSectionId);
     const commentsFirstHorizontalLine = document.getElementById(commentsFirstHorizontalLineId);
 
     for (let comment of comments) {
