@@ -3,7 +3,7 @@ const showsLabelCl = 'shows__label';
 const showInfoBoldTextCl = 'shows__show-info-text-bold';
 const showInfoTextCl = 'shows__show-info-text';
 const buyTicketButtonCl = 'shows__buy-ticket-button';
-const horizontalLineClass = 'shows__horizontal-line'; 
+const horizontalLineCl = 'shows__horizontal-line'; 
 const buyTicketFormSelectedCl = 'shows__buy-ticket-form--selected';
 
 
@@ -112,7 +112,7 @@ function renderShows() {
     for(let show of shows) {
         showsEl.appendChild(createShowForm(show.date, show.venue, show.location));
         const horizontalLine = document.createElement('div');
-        horizontalLine.classList.add(horizontalLineClass);
+        horizontalLine.classList.add(horizontalLineCl);
         showsEl.appendChild(horizontalLine);
     }
 }
