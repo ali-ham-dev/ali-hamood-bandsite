@@ -62,7 +62,7 @@ function userSelectedTicketElement(event) {
         element.classList.remove('shows__buy-ticket-form--selected');
     });
 
-    event.target.classList.add(buyTicketFormSelectedCl);    
+    event.currentTarget.classList.add(buyTicketFormSelectedCl);    
 }
 
 function createShowForm(date, venue, location) {
