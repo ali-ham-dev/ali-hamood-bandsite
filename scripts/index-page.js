@@ -46,7 +46,7 @@ const comments = [
     },
 ];
 
-function getFormateDate(date) {
+function getFormateDateDeprecated(date) {
     let dateString = '';
 
     dateString += String(date.getMonth() + 1).padStart(2, '0') + '/';
@@ -81,7 +81,7 @@ function createCommentHTML(userName, comment, date) {
     commentTextEl.classList.add(commentTextClass);
 
     commentUserNameEl.innerText = userName;
-    commentDateNameEl.innerText = getFormateDate(date);
+    commentDateNameEl.innerText = date.toLocaleDateString();
     commentDateNameEl.setAttribute('datetime', date.toISOString());
     commentTextEl.innerText = comment;
 
