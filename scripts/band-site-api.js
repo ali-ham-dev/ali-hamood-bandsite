@@ -23,8 +23,15 @@ class BandSiteApi {
         return commentsResponse.data.sort((a,b) => b.timestamp - a.timestamp);
     }
 
-    postComment(comment) {
-
+    async postComment(comment) {
+        try {
+            await axios.post(this.commentsUrl, comment, {
+                headers: {'Content-Type': 'application/json'}
+            });
+        }
+        catch (error) {
+            console.log(error.message);
+        }
     }
 
     async getShows() {

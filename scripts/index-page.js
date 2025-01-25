@@ -140,7 +140,6 @@ async function submitCommentHandler(event) {
 
     const userName = event.target.userName.value;
     const userComment = event.target.comment.value;
-    const commentDate = new Date();
 
     const userNameInput = event.target.userName;
     userNameInput.classList.remove(redBorderStyleClass);
@@ -170,10 +169,9 @@ async function submitCommentHandler(event) {
     event.target.comment.value = '';
     event.target.userName.value = '';
 
-    comments.push({
-        userName: userName,
-        comment: userComment,
-        commentDate: commentDate,
+    await bandSiteApi.postComment({
+        name: userName, 
+        comment: userComment
     });
 
     renderComments();
