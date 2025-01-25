@@ -135,7 +135,7 @@ async function renderComments() {
     }
 }
 
-function submitCommentHandler(event) {
+async function submitCommentHandler(event) {
     event.preventDefault();
 
     const userName = event.target.userName.value;

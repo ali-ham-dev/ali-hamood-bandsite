@@ -3,8 +3,11 @@ const showsLabelCl = 'shows__label';
 const showInfoBoldTextCl = 'shows__show-info-text-bold';
 const showInfoTextCl = 'shows__show-info-text';
 const buyTicketButtonCl = 'shows__buy-ticket-button';
-const horizontalLineCl = 'shows__horizontal-line'; 
+const horizontalLineClass = 'shows__horizontal-line'; 
 const buyTicketFormSelectedCl = 'shows__buy-ticket-form--selected';
+
+const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
+const bandSiteApi = new BandSiteApi(apiKey);
 
 
 const shows = [
@@ -62,7 +65,7 @@ function userSelectedTicketElement(event) {
         element.classList.remove('shows__buy-ticket-form--selected');
     });
 
-    event.currentTarget.classList.add(buyTicketFormSelectedCl);    
+    event.target.classList.add(buyTicketFormSelectedCl);    
 }
 
 function createShowForm(date, venue, location) {
@@ -106,13 +109,14 @@ function createShowForm(date, venue, location) {
     return showForm;
 }
 
-function renderShows() {
+async function renderShows() {
     const showsEl = document.getElementById('shows-table');
+    const shows = await bandSiteApi.getShows();
 
     for(let show of shows) {
-        showsEl.appendChild(createShowForm(show.date, show.venue, show.location));
+        showsEl.appendChild(createShowForm(new Date(show.date).toLocaleDateString(), show.place, show.location));
         const horizontalLine = document.createElement('div');
-        horizontalLine.classList.add(horizontalLineCl);
+        horizontalLine.classList.add(horizontalLineClass);
         showsEl.appendChild(horizontalLine);
     }
 }

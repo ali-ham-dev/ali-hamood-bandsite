@@ -27,8 +27,16 @@ class BandSiteApi {
 
     }
 
-    getShows() {
-        shows = [{}, {}, {}];
-        return shows;
+    async getShows() {
+        let showsResponse;
+
+        try {
+            showsResponse = await axios.get(this.showDatesUrl);
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+
+        return showsResponse.data;
     }
 }
