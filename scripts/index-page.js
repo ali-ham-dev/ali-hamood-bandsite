@@ -7,7 +7,7 @@ const horizontalLineClass = 'comments__horizontal-line';
 const commentSectionId = 'comments-section'; 
 
 const redBorderStyleClass = 'comments__form--error';
-const commentWrapperClass = 'comments__comment';
+const commentsCommentClass = 'comments__comment';
 const profilePicClass = 'comments__profile';
 const commentProfilePicClass = 'comments__profile--comment';
 const commentContentClass = 'comments__comment-content';
@@ -15,38 +15,13 @@ const commentHeaderClass = 'comments__comment-header';
 const commentUserNameClass = 'comments__comment-user-name';
 const commentDateClass = 'comments__comment-date';
 const commentTextClass = 'comments__text';
+const commentsWrapperClass = 'comments-wrapper';
+
 
 const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
 const bandSiteApi = new BandSiteApi(apiKey);
 
-const comments = [
-    {
-        userName: 'Isaac Tadesse',
-        comment: 'I can\'t stop listening. Every time I hear one of their songs - the vocals ' +
-        '- it gives me goosebumps. Shivers straight down my spine. What a ' +
-        'beautiful expression of creativity. Can\'t get enough.',
-        commentDate: new Date('10/20/2023'),
-        rendered: false,
-    },
-
-    {
-        userName: 'Christina Cabrera',
-        comment: 'I feel blessed to have seen them in person. What a show! They were ' +
-        'just perfection. If there was one day of my life I could relive, this ' +
-        'would be it. What an incredible day.',
-        commentDate: new Date('10/28/2023'),
-        rendered: false,
-    },
-
-    {
-        userName: 'Victor Pinto',
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, ' + 
-        'everything that makes up this majestic work deserves reverence. Let us appreciate' +
-        ' this for what it is and what it contains.',
-        commentDate: new Date('11/02/2023'),
-        rendered: false,
-    },
-];
+let cachedComments = [];
 
 function getFormateDateDeprecated(date) {
     let dateString = '';
@@ -73,7 +48,7 @@ function createCommentHTML(userName, comment, date) {
     const commentDateNameEl = document.createElement('time');
     const commentTextEl = document.createElement('p');
 
-    articleEl.classList.add(commentWrapperClass);
+    articleEl.classList.add(commentsCommentClass);
     figureEl.classList.add(profilePicClass);
     figureEl.classList.add(commentProfilePicClass);
     commentContentEl.classList.add(commentContentClass);
@@ -101,7 +76,7 @@ function createCommentHTML(userName, comment, date) {
 
 function removeAllComments() {
     const commentWrapper = document.getElementById(commentSectionId);
-    const commentElements = document.getElementsByClassName(commentWrapperClass);
+    const commentElements = document.getElementsByClassName(commentsCommentClass);
     const horizontalLineElements = document.getElementsByClassName(horizontalLineClass);
     
     if (commentElements?.length) {
@@ -122,16 +97,32 @@ function removeAllComments() {
     }
 }
 
-async function renderComments() {
-    removeAllComments();
+function commentHasBeenDisplayed(comment) {
+    for (let cachedComment of cachedComments) {
+        if (cachedComment.name == comment.name &&
+            cachedComment.timestamp == comment.timestamp &&
+            cachedComment.comment == comment.comment) {
+            return true;
+        }
+    }
 
-    const commentWrapper = document.getElementById(commentSectionId);
-    const comments = await bandSiteApi.getComments();
+    return false;
+}
+
+async function renderComments() {
+    // removeAllComments();
+
+    const commentWrapper = document.getElementById(commentsWrapperClass);
+    let comments = await bandSiteApi.getComments();
+    comments = comments.reverse();
 
     for (let comment of comments) {
-        const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp));
-        commentWrapper.appendChild(htmlComment);
-        commentWrapper.appendChild(createHorizontalLineHTML());
+        if (!commentHasBeenDisplayed(comment)) {
+            const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp));
+            commentWrapper.prepend(htmlComment);
+            commentWrapper.prepend(createHorizontalLineHTML());
+            cachedComments.push(comment);
+        }
     }
 }
 
