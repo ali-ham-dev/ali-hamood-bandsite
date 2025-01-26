@@ -17,6 +17,8 @@ const commentDateClass = 'comments__comment-date';
 const commentTextClass = 'comments__text';
 const commentsWrapperClass = 'comments-wrapper';
 
+const commentsLikeButtonClass = 'comments__like-button';
+
 
 const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
 const bandSiteApi = new BandSiteApi(apiKey);
@@ -39,10 +41,26 @@ function createHorizontalLineHTML() {
     return horizontalLine;
 }
 
-function createCommentHTML(userName, comment, date) {
+function updateLikes(event) {
+    event.preventDefault();
+    console.log(event);
+
+}
+
+function createLikeButton(comment) {
+    const commentLikeButtonEL = document.createElement('button');
+    commentLikeButtonEL.classList.add(commentsLikeButtonClass);
+    commentLikeButtonEL.addEventListener('click', updateLikes);
+    commentLikeButtonEL.innerText = comment.likes;
+    commentLikeButtonEL.id = comment.id;
+
+    return commentLikeButtonEL;
+}
+
+function createCommentHTML(comment) {
     const articleEl = document.createElement('article');
     const figureEl = document.createElement('figure');
-    const commentContentEl = document.createElement('div');
+    const commentContentEl = document.createElement('div'); 
     const commentHeaderEl = document.createElement('div');
     const commentUserNameEl = document.createElement('h3');
     const commentDateNameEl = document.createElement('time');
@@ -57,16 +75,18 @@ function createCommentHTML(userName, comment, date) {
     commentDateNameEl.classList.add(commentDateClass);
     commentTextEl.classList.add(commentTextClass);
 
-    commentUserNameEl.innerText = userName;
+    commentUserNameEl.innerText = comment.name;
+    const date = new Date(comment.timestamp);
     commentDateNameEl.innerText = date.toLocaleDateString();
     commentDateNameEl.setAttribute('datetime', date.toISOString());
-    commentTextEl.innerText = comment;
+    commentTextEl.innerText = comment.comment;
 
     commentHeaderEl.appendChild(commentUserNameEl);
     commentHeaderEl.appendChild(commentDateNameEl);
 
     commentContentEl.appendChild(commentHeaderEl);
     commentContentEl.appendChild(commentTextEl);
+    commentContentEl.appendChild(createLikeButton(comment));
 
     articleEl.appendChild(figureEl);
     articleEl.appendChild(commentContentEl);
@@ -99,9 +119,7 @@ function removeAllComments() {
 
 function commentHasBeenDisplayed(comment) {
     for (let cachedComment of cachedComments) {
-        if (cachedComment.name == comment.name &&
-            cachedComment.timestamp == comment.timestamp &&
-            cachedComment.comment == comment.comment) {
+        if (cachedComment.id == comment.id) {
             return true;
         }
     }
@@ -110,15 +128,14 @@ function commentHasBeenDisplayed(comment) {
 }
 
 async function renderComments() {
-    // removeAllComments();
-
     const commentWrapper = document.getElementById(commentsWrapperClass);
     let comments = await bandSiteApi.getComments();
     comments = comments.reverse();
 
     for (let comment of comments) {
         if (!commentHasBeenDisplayed(comment)) {
-            const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp));
+            // const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp), comment.likes);
+            const htmlComment = createCommentHTML(comment);
             commentWrapper.prepend(htmlComment);
             commentWrapper.prepend(createHorizontalLineHTML());
             cachedComments.push(comment);

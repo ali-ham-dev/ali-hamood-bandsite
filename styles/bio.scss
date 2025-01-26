@@ -434,4 +434,22 @@
             @include body-text;
         }
     }
+
+    &__like-button {
+        background-image: url("../assets/icons/icon-like.svg");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-color: $secondary-alabaster;
+        border: $input-text-boarder-thickness solid $primary-silver;
+        border-radius: $margin-half;
+        height: $margin-one-half;
+        width: 2.5rem;
+        text-align: right;
+        text-justify: center;
+
+        &:hover {
+            background-color: $secondary-mercury;
+            border: 1px solid $primary-black;
+        }
+    }
 }
