@@ -435,6 +435,10 @@
         }
     }
 
+    &__comment-controls {
+        display: flex;
+    }
+
     &__like-button {
         background-image: url("../assets/icons/icon-like.svg");
         background-repeat: no-repeat;
@@ -461,6 +465,7 @@
         border-radius: $margin-half;
         height: $margin-one-half;
         width: $margin-one-half;
+        margin-left: auto;
 
         &:hover {
             background-color: $secondary-mercury;

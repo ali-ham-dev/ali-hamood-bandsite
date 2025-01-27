@@ -19,6 +19,7 @@ const commentsWrapperClass = 'comments-wrapper';
 
 const commentsLikeButtonClass = 'comments__like-button';
 const commentsDeleteButtonClass = 'comments__delete-button';
+const commentControlsClass = 'comments__comment-controls';
 
 
 const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
@@ -45,14 +46,18 @@ function createHorizontalLineHTML(comment) {
 
 async function updateLikes(event) {
     event.preventDefault();
+
     await bandSiteApi.likeComment(event.target.id);
+
     const comments = await bandSiteApi.getComments();
     const comment = comments.find((comment) => {
         if (comment.id == event.target.id) {
             return comment;
         }
     });
+
     event.target.innerText = comment.likes;
+    event.target.style.width = 2.5 + (comment.likes.toString().length - 1) * 0.5 + 'rem';
 }
 
 function createLikeButton(comment) {
@@ -68,6 +73,10 @@ function createLikeButton(comment) {
 
 async function deleteComment(event) {
     event.preventDefault();
+
+    if (!confirm('Are you sure you want to delete the comment?')) {
+        return;
+    }
 
     await bandSiteApi.deleteComment(event.target.id);
 
@@ -100,6 +109,7 @@ function createCommentHTML(comment) {
     const figureEl = document.createElement('figure');
     const commentContentEl = document.createElement('div'); 
     const commentHeaderEl = document.createElement('div');
+    const commentControlsEl = document.createElement('div');
     const commentUserNameEl = document.createElement('h3');
     const commentDateNameEl = document.createElement('time');
     const commentTextEl = document.createElement('p');
@@ -109,6 +119,7 @@ function createCommentHTML(comment) {
     figureEl.classList.add(commentProfilePicClass);
     commentContentEl.classList.add(commentContentClass);
     commentHeaderEl.classList.add(commentHeaderClass);
+    commentControlsEl.classList.add(commentControlsClass);
     commentUserNameEl.classList.add(commentUserNameClass);
     commentDateNameEl.classList.add(commentDateClass);
     commentTextEl.classList.add(commentTextClass);
@@ -122,10 +133,12 @@ function createCommentHTML(comment) {
     commentHeaderEl.appendChild(commentUserNameEl);
     commentHeaderEl.appendChild(commentDateNameEl);
 
+    commentControlsEl.appendChild(createLikeButton(comment));
+    commentControlsEl.appendChild(createDeleteButton(comment));
+
     commentContentEl.appendChild(commentHeaderEl);
     commentContentEl.appendChild(commentTextEl);
-    commentContentEl.appendChild(createLikeButton(comment));
-    commentContentEl.appendChild(createDeleteButton(comment));
+    commentContentEl.appendChild(commentControlsEl);
 
     articleEl.id = comment.id;
     articleEl.appendChild(figureEl);
