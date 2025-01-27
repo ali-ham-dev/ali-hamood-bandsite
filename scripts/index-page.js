@@ -89,7 +89,7 @@ async function deleteComment(event) {
     cachedComments.splice(commentIndex, 1);
 
     let commentOrLine = document.getElementById(event.target.id);
-    while(commentOrLine) {
+    while (commentOrLine) {
         commentOrLine.remove();
         commentOrLine = document.getElementById(event.target.id);
     }
