@@ -2,6 +2,7 @@ class BandSiteApi {
     baseUrl = 'https://unit-2-project-api-25c1595833b2.herokuapp.com';
     commentsUrn = '/comments';
     showDatesUrn = '/showdates';
+    likeUrn = '/like';
     
     constructor(apiKey) {
         this.apiKey = apiKey;
@@ -29,7 +30,7 @@ class BandSiteApi {
                 headers: {'Content-Type': 'application/json'}
             });
         }
-        catch (error) {
+        catch(error) {
             console.log(error.message);
         }
     }
@@ -40,10 +41,37 @@ class BandSiteApi {
         try {
             showsResponse = await axios.get(this.showDatesUrl);
         }
-        catch (error) {
+        catch(error) {
             console.log(error.message);
         }
 
         return showsResponse.data;
+    }
+
+    async likeComment(commentId) {
+        try {
+            await axios.put(this.baseUrl + 
+                this.commentsUrn + 
+                '/' + 
+                commentId + 
+                this.likeUrn + 
+                this.apiKey);
+        }
+        catch(error) {
+            console.log(error.message);
+        }
+    }
+
+    async deleteComment(commentId) {
+        try {
+            await axios.delete(this.baseUrl + 
+                this.commentsUrn + 
+                '/' + 
+                commentId + 
+                this.apiKey);
+        }
+        catch(error) {
+            console.log(error.message);
+        }
     }
 }

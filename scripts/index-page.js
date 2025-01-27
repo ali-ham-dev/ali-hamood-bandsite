@@ -18,6 +18,7 @@ const commentTextClass = 'comments__text';
 const commentsWrapperClass = 'comments-wrapper';
 
 const commentsLikeButtonClass = 'comments__like-button';
+const commentsDeleteButtonClass = 'comments__delete-button';
 
 
 const apiKey = '/?api_key=219a94e9-8539-4d61-984b-d10be092f38d';
@@ -35,16 +36,23 @@ function getFormateDateDeprecated(date) {
     return dateString;
 }
 
-function createHorizontalLineHTML() {
+function createHorizontalLineHTML(comment) {
     const horizontalLine = document.createElement('div');
+    horizontalLine.id = comment.id;
     horizontalLine.classList.add(horizontalLineClass);
     return horizontalLine;
 }
 
-function updateLikes(event) {
+async function updateLikes(event) {
     event.preventDefault();
-    console.log(event);
-
+    await bandSiteApi.likeComment(event.target.id);
+    const comments = await bandSiteApi.getComments();
+    const comment = comments.find((comment) => {
+        if (comment.id == event.target.id) {
+            return comment;
+        }
+    });
+    event.target.innerText = comment.likes;
 }
 
 function createLikeButton(comment) {
@@ -53,8 +61,38 @@ function createLikeButton(comment) {
     commentLikeButtonEL.addEventListener('click', updateLikes);
     commentLikeButtonEL.innerText = comment.likes;
     commentLikeButtonEL.id = comment.id;
+    commentLikeButtonEL.style.width = 2.5 + (comment.likes.toString().length - 1) * 0.5 + 'rem';
 
     return commentLikeButtonEL;
+}
+
+async function deleteComment(event) {
+    event.preventDefault();
+
+    await bandSiteApi.deleteComment(event.target.id);
+
+    const commentIndex = cachedComments.findIndex((comment) => {
+        if (comment.id == event.target.id) {
+            return true;
+        }
+        return false;
+    });
+    cachedComments.splice(commentIndex, 1);
+
+    let commentOrLine = document.getElementById(event.target.id);
+    while(commentOrLine) {
+        commentOrLine.remove();
+        commentOrLine = document.getElementById(event.target.id);
+    }
+}
+
+function createDeleteButton(comment) {
+    const commentDeleteButtonEL = document.createElement('button');
+    commentDeleteButtonEL.classList.add(commentsDeleteButtonClass);
+    commentDeleteButtonEL.addEventListener('click', deleteComment);
+    commentDeleteButtonEL.id = comment.id;
+
+    return commentDeleteButtonEL;
 }
 
 function createCommentHTML(comment) {
@@ -87,7 +125,9 @@ function createCommentHTML(comment) {
     commentContentEl.appendChild(commentHeaderEl);
     commentContentEl.appendChild(commentTextEl);
     commentContentEl.appendChild(createLikeButton(comment));
+    commentContentEl.appendChild(createDeleteButton(comment));
 
+    articleEl.id = comment.id;
     articleEl.appendChild(figureEl);
     articleEl.appendChild(commentContentEl);
 
@@ -134,10 +174,9 @@ async function renderComments() {
 
     for (let comment of comments) {
         if (!commentHasBeenDisplayed(comment)) {
-            // const htmlComment = createCommentHTML(comment.name, comment.comment, new Date(comment.timestamp), comment.likes);
             const htmlComment = createCommentHTML(comment);
             commentWrapper.prepend(htmlComment);
-            commentWrapper.prepend(createHorizontalLineHTML());
+            commentWrapper.prepend(createHorizontalLineHTML(comment));
             cachedComments.push(comment);
         }
     }
