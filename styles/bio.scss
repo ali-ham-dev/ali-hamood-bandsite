@@ -57,18 +57,18 @@
 }
 
 .about {
-    margin-left: $margin-side-offset;
-    margin-right: $margin-side-offset;
+    margin-left: $m-margin-side-offset;
+    margin-right: $m-margin-side-offset;
     overflow: hidden;
 
-    @include tablet-deprecating {
+    @include tablet {
         margin-left: $t-margin-side-offset;
         margin-right: $t-margin-side-offset;
     }
 
-    @include mobile-deprecating {
-        margin-left: $m-margin-side-offset;
-        margin-right: $m-margin-side-offset;
+    @include desktop {
+        margin-left: $margin-side-offset;
+        margin-right: $margin-side-offset;
     }
 
     &__title {
@@ -76,37 +76,36 @@
     }
 
     &__content-margins {
-        margin-left: $about-margin-offset;
-        margin-right: $about-margin-offset;
-
+        margin-left: 0;
+        margin-right: 0;
         
-        @include tablet-deprecating {
+        @include tablet {
             margin-left: $t-about-margin-offset;
             margin-right: $t-about-margin-offset;
         }
-    
-        @include mobile-deprecating {
-            margin-left: 0;
-            margin-right: 0;
+
+        @include desktop {
+            margin-left: $about-margin-offset;
+            margin-right: $about-margin-offset;
         }
     }
 
     &__image-box {
         overflow: hidden;
         width: 100%;
-        height: 30rem;
+        height: 15rem;
         display: flex;
-        align-content: center;
+        align-content: end;
         justify-content: center;
+        flex-wrap: wrap;
 
-        @include tablet-deprecating {
+        @include tablet {
             height: 25rem;
         }
-    
-        @include mobile-deprecating {
-            height: 15rem;
-            flex-wrap: wrap;
-            align-content: end;
+
+        @include desktop {
+            height: 30rem;
+            align-content: center;
         }
     }
 
@@ -117,65 +116,66 @@
     }
 
     &__quote-text {
-        margin-right: 9rem;
-        @include quote-text;
+        @include m-quote-text;
+        margin-right: $no-margin;
+        margin-bottom: $no-margin;
 
-        @include tablet-deprecating {
+        @include tablet {
             margin-right: 0;
         }
 
-        @include mobile-deprecating {
-            @include m-quote-text;
-            margin-right: $no-margin;
-            margin-bottom: $no-margin;
+        @include desktop {
+            @include quote-text;
+            margin-right: 9rem;
         }
     }
 
     &__quote-author {
-        @include body-bold-text;
+        @include m-quote-text;
+        margin-top: $margin-half;
 
-        @include mobile-deprecating {
-            @include m-quote-text;
-            margin-top: $margin-half;
+        @include tablet-and-desktop {
+            @include body-bold-text;
         }
     }
 
     &__article-text-container {
         display: flex;
+        flex-direction: column;
 
-        @include mobile-deprecating {
-            flex-direction: column;
+        @include tablet-and-desktop {
+            flex-direction: row;
         }
     }
 
     &__article-title {
-        margin-top: $headline-margin-before;
-        margin-bottom: $margin-one;
-        @include subheader-text;
+        @include m-subheader-text;
+        margin-top: $m-headline-margin-before;
+        margin-bottom: $margin-half;
         display: block;
 
-        @include mobile-deprecating {
-            margin-top: $m-headline-margin-before;
-            margin-bottom: $margin-half;
-            @include m-subheader-text;
+        @include tablet-and-desktop {
+            @include subheader-text;
+            margin-top: $headline-margin-before;
+            margin-bottom: $margin-one;
         }
     }
 
     &__article-text {
-        @include body-text;
-        width: 50%;
+        @include m-body-text;
+        width: 100%;
 
-        @include mobile-deprecating {
-            width: 100%;
-            @include m-body-text;
+        @include tablet-and-desktop {
+            @include body-text;
+            width: 50%;
         }
     }
 
     &__article-text--margin {
-        margin-right: $margin-one;
+        margin-right: 0rem;
 
-        @include mobile-deprecating {
-            margin-right: 0rem;
+        @include tablet-and-desktop {
+            margin-right: $margin-one;
         }
     }
 }
@@ -185,19 +185,19 @@
     overflow: hidden;
 
     &__margin-container {
-        margin-left: $margin-side-offset;
-        margin-right: $margin-side-offset;
-        margin-bottom: $margin-two;
+        margin-left: $m-margin-side-offset;
+        margin-right: $m-margin-side-offset;
+        margin-bottom: 0;
 
-        @include tablet-deprecating {
+        @include tablet {
             margin-left: $t-margin-side-offset;
             margin-right: $t-margin-side-offset;
         }
 
-        @include mobile-deprecating {
-            margin-left: $m-margin-side-offset;
-            margin-right: $m-margin-side-offset;
-            margin-bottom: 0;
+        @include desktop {
+            margin-left: $margin-side-offset;
+            margin-right: $margin-side-offset;
+            margin-bottom: $margin-two;
         }
     }
 
@@ -215,9 +215,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        flex-direction: column;
 
-        @include mobile-deprecating {
-            flex-direction: column;
+        @include tablet-and-desktop {
+            flex-direction: row;
         }
     }
 
@@ -226,19 +227,20 @@
     }
 
     &__picture-wall--row-margin {
-        margin-bottom: $margin-one;
-
-        @include mobile-deprecating {
-            margin: 0;
+        margin: 0;
+        
+        @include tablet-and-desktop {
+            margin-bottom: $margin-one;
         }
     }
     
     &__picture-box {
         width: 100%;
         height: 100%;
+        margin-bottom: $margin-one;
 
-        @include mobile-deprecating {
-            margin-bottom: $margin-one;
+        @include tablet-and-desktop {
+            margin-bottom: $no-margin;
         }
     }
 
@@ -430,6 +432,44 @@
 
         @include tablet-and-desktop {
             @include body-text;
+        }
+    }
+
+    &__comment-controls {
+        display: flex;
+    }
+
+    &__like-button {
+        background-image: url("../assets/icons/icon-like.svg");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-color: $secondary-alabaster;
+        border: $input-text-boarder-thickness solid $primary-silver;
+        border-radius: $margin-half;
+        height: $margin-one-half;
+        width: 2.5rem;
+        text-align: right;
+
+        &:hover {
+            background-color: $secondary-mercury;
+            border: 1px solid $primary-black;
+        }
+    }
+
+    &__delete-button {
+        background-image: url("../assets/icons/icon-delete.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $secondary-alabaster;
+        border: $input-text-boarder-thickness solid $primary-silver;
+        border-radius: $margin-half;
+        height: $margin-one-half;
+        width: $margin-one-half;
+        margin-left: auto;
+
+        &:hover {
+            background-color: $secondary-mercury;
+            border: 1px solid $error-state;
         }
     }
 }
